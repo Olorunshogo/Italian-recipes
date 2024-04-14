@@ -1,0 +1,832 @@
+    /* Universal selector */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+    /* Pre-defined settings */
+:root {
+    --primary-background: #000000;
+    --secondary-background: #111111;
+    --text-color: #fff;
+    --primary-link-background: rgba(246, 0, 0, 0.9);
+    --primary-link-color: #f2f2f2;
+    --secondary-link-background: rgba(246, 246, 246, 0.9);
+    --secondary-link-color: red;
+    --nav-bar-height: 5rem;
+
+    --footer-bg: rgba(9, 9, 9, 1.0);
+    --footer-text-color: rgba(200, 200, 200, 0.8);
+    
+}
+
+body {
+    background-color: var(--primary-background);
+    color: var(--text-color);
+    font-family: "Brygada 1918", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.6;
+    width: 100vw;
+    height: 100vh;
+}
+
+.page-container {
+    padding: 1rem 3rem;
+    position: relative;
+}
+
+.width {
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+    /* UTILITY SETTINGS */
+
+    /* SECTIONS */
+section {
+    margin: 2rem 0;
+}
+
+    /* UNORDERED LISTS */
+ul {
+    list-style-type: none;
+}
+
+    /* LINKS */
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+    /* PARAGRAPHS */
+p {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    /* BUTTONS */
+.btn {
+    border-radius: 3rem;
+    text-align: center;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    outline: none;
+    text-decoration: none;
+    transition: all 0.4s ease-in-out;
+}  
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+    /* HEADERS */
+h1, h2, h3, h4, h5, h6 {
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: 500;
+}
+
+        /* ICONS */
+.fa-solid {
+    color: rgba(255, 0, 0, 0.805);
+    font-size: 1.3rem;
+    margin-right: 0.4rem;
+}
+
+/* View Recipe link and the arrow in the fixed button */
+.primary-link .fa-solid, .top-button .fa-solid {
+    color: #fff;
+}
+
+    /* The EAT-ITALIAN LOGO */
+.logo {
+    font-size: 2rem;
+    font-weight: 600;
+    font-style: italic;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: baseline;
+}
+
+.logo .italian {
+    color: var(--primary-link-background);
+}
+
+.logo svg {
+    width: 4rem;
+    height: 3rem;
+}
+    /* End of the EAT-ITALIAN LOGO */
+
+    /* The SEARCH INPUT FIELD */
+.forms input[type=search] {
+  background-color: var(--primary-background);
+  color: teal;
+  background-image: url('/Images/tabler--search.svg');
+  background-position: 8px;
+  background-repeat: no-repeat;
+  background-size: 26px;
+  box-sizing: border-box;
+  border: 1px solid #222;
+  border-radius: 8px;
+  outline: 0;
+  font-size: 1.2rem;
+  font-weight: 400;
+  padding: 0.8rem 1rem 0.8rem 3rem;
+  width: 70%;
+  height: 50px;
+  transition: width 0.5s ease-in-out;
+  caret-color: teal;
+}
+
+.forms input[type=search]::placeholder {
+  color: teal;
+  font-size: 1.5rem;
+  padding-left: 1rem;
+}
+
+.forms input[type=search]:focus {
+  width: 100%;
+  border: 2px solid teal;
+}
+    /* End of the SEARCH INPUT FIELD */
+
+    /* The NAVIGATIONS */
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: baseline;
+    height: var(--nav-bar-height);
+    width: 100%;
+}
+
+.nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.nav ul li {
+    margin: 0.3rem 0.8rem;
+}
+
+.nav ul li a, .best-recipes .recipes-bar ul li a {
+    color: #888;
+    font-size: 1rem;
+}
+
+.primary-link {
+    color: var(--primary-link-color);
+    display: block;
+    background-color: var(--primary-link-background);
+    margin: 2rem 0;
+    width: 35%;
+    padding: 1rem;
+    text-align: center;
+}
+
+.primary-link:hover {
+    background-color: rgba(246, 0, 0, 1.0);
+    /* box-shadow: 0 12px 16px 0 rgba(246,0,0,0.50), 0 17px 50px 0 rgba(0,0,0,0.19); */
+}
+
+/* The HOME button and LOGIN link */
+.nav #home, .nav ul li #login-link, .best-recipes .recipes-bar #all {
+    color: #eee;
+}
+
+.nav #home:hover, .nav ul li #login-link:hover, .nav ul li a:hover, .best-recipes .recipes-bar ul li a:hover, .best-recipes .recipes-bar #all:hover {
+    color: teal;
+    transition: all 0.5s ease-in-out;
+}
+    /* End of the NAVIGATIONS Section */
+
+    /* SECTIONS */
+
+    /* The SHOWCASE Section */
+.showcase {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.showcase .chefs {
+    background-image: radial-gradient(circle, rgb(109, 9, 9, 0.5) 40%, var(--secondary-background) 30%, var( --primary-background) 30%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 40%;
+}
+
+.showcase .chefs .row1, .showcase .chefs .row2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    text-align: center;
+    margin-right: 40%;
+}
+
+.showcase .chefs .row1 #showcase-food {
+    width: 100%;
+    max-height: auto;
+}
+
+.showcase .chefs .row1 #showcase-food img {
+    width: 20vw;
+    height: 15vw;
+    border-radius: 50%;
+}
+
+.showcase .chefs .row2, .showcase .chefs .row1 #chief-chef {
+    width: 100%;
+    max-height: auto;
+}
+
+.showcase .chefs .row2 img, .showcase .chefs .row1 #chief-chef img {
+    width: 40%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.showcase .chefs .desc {
+    font-size: 1rem;
+    text-align: center;
+}
+
+.showcase .texts {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 60%;
+}
+
+.showcase .texts p {
+    font-size: 1.1rem;
+}
+
+.showcase .texts h1 {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 5rem;
+    font-weight: 700;
+}
+    /* End of the SHOWCASE Section */
+
+    /* The BEST RECIPES Section */
+.best-recipes {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.best-recipes h2 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    text-align: left;
+}
+
+.best-recipes .recipes-bar {
+    width: 100%;
+    height: var(--nav-bar-height);
+}
+
+.best-recipes .recipes-bar ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.best-recipes .gallery {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.best-recipes .gallery .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    margin: 1rem 0;
+}
+
+.best-recipes .gallery .row .highlight {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: var(--secondary-background);
+    width: 25%;
+    height: auto;
+    margin: 0 1rem 0 0;
+}
+
+.best-recipes .gallery .row .highlight img {
+    height: auto;
+    width: 100%;
+}
+
+.best-recipes .gallery .row .highlight .desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: var(--secondary-background);
+    line-height: normal;
+    padding: 1rem;
+}
+
+.best-recipes .gallery .row .highlight .desc h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.secondary-link {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--secondary-link-color);
+    background-color: var(--secondary-link-background);
+    width: 70%;
+    margin: 1rem 0;
+    padding: 1rem;
+    transition: all 0.4s ease-in-out;
+    display: block;
+}
+
+.secondary-link:active, .read-more:active {
+    transform: scale(0.95);
+}
+    
+.secondary-link:hover {
+    background-color: #ffffff;
+}
+    /* End of the BEST RECIPES Section */
+
+    /* ABOUT US Section */
+.about-us {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.about-us .row1 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.about-us .row1 .image {
+    width: 50%;
+    position: relative;
+}
+
+.about-us .row1 .image #ingredients {
+    width: 80%;
+    height: auto;
+    border-radius: 10%;
+    margin-top: 2rem;
+}
+
+.about-us .row1 .image #chef {
+    width: 20%;
+    height: auto;
+    background-color: #fff;
+    border-radius: 50%;
+    top: 0;
+    right: 10%;
+    position: absolute;
+}
+
+.about-us .row1 .image #chef img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    display: flex;
+    margin: auto;
+    padding: 5%;
+    
+}
+
+.about-us .row1 .image #ideal {
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 210px;
+    background-color: #000;
+    border-radius: 8px;
+    color: rgb(200, 39, 39);
+    z-index: 2;
+    font-size: 1.2rem;
+    font-weight: 600;
+    box-shadow: 4px;
+    bottom: 10%;
+    right: 10%;
+    position: absolute; 
+}
+
+.about-us #ideal svg {
+    width: 3rem;
+    height: auto;
+    padding: 0.1rem;
+}
+
+.about-us .description {
+    width: 50%;
+}
+
+.about-us .description h2 {
+    font-weight: 600;
+    font-size: 2.2rem;
+}
+
+.about-us .description p {
+    font-weight: 400;
+    font-size: 1rem;
+    margin: 1rem 0;
+}
+
+    /* Read more buttons */
+.read-more {
+    padding: 1rem;
+    width: 180px;
+    border-radius: 8px;
+    color: #888;
+    border: 2px solid grey;
+    text-transform: capitalize;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 1rem 0;
+    text-align: center;
+    transition: all 0.5s ease-in-out;
+}
+
+.read-more:hover {
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+#active{
+    color: red;
+    border: 2px solid rgba(246, 0, 0, 0.8);
+    transition: all 0.5s ease-in-out;
+}
+
+#active:hover{
+    transform: scale(0.95);
+    color: red;
+    border: 2px solid red;
+}
+
+.about-us .row2 .others {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.about-us .row2 .others .container {
+    display: flex;
+    flex-direction: column;
+    width: 32%;
+    margin-right: 1rem;
+}
+
+.about-us .row2 .others .container img {
+    width: 100%;
+    height: auto;
+}
+
+.about-us .row2 .others .container p {
+    font-size: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.about-us .row2 .others .description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 2rem;
+    text-align: center;
+    width: 100%;
+    border-radius: 0 0 20px 20px;
+    border: 2px solid #888;
+}
+
+.about-us .row2 .others .description h3 {
+    font-size: 2rem;
+    color: #eee;
+}
+    /* End of the ABOUT US Section */
+
+    /* The TOP CHEFS Section */
+.top-chefs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: space-between;
+    margin: auto;
+}
+
+.top-chefs .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: space-between;
+
+}
+
+.top-chefs h2{
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    color: #ddd;
+}
+
+.top-chefs .container img{
+    height: auto;
+    width: 60%;
+    border-radius: 100%;
+}
+
+.top-chefs .container p {
+    font-size: 1rem;
+    font-weight: 400;
+}
+    /* End of the TOP CHEFS Section */
+
+    /* The SHARE Section */
+.share {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.share .share-recipe {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.share .image {
+    width: 50%;
+    height: auto;
+}
+
+.share .image img{
+    width: 80%;
+    height: auto;
+    border-radius: 10%;
+}
+
+.share .share-recipe h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    padding-bottom: 1rem;
+}
+
+.share .share-recipe p {
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+        /* The SHARE INPUT FIELDS */
+.share form label {
+    display: block;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+.share input[type=text], .share input[type=textarea] {
+    background-color: var(--primary-background);
+    color: #888;
+    box-sizing: border-box;
+    border: 1px solid #222;
+    border-radius: 8px;
+    outline: 0;
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding: 0.8rem 1rem;
+    width: 60%;
+    height: 50px;
+    transition: width 0.5s ease-in-out;
+    caret-color: teal;
+    margin: 0.5rem 0 1rem 0;
+}
+  
+.share input[type=text]::placeholder, .share input[type=textarea]::placeholder {
+    color: #999;
+    font-size: 1.2rem;
+}
+  
+.share input[type=text]:focus, .share input[type=textarea]:focus, .share input[type=email]:focus {
+    width: 90%;
+    border: 2px solid teal;
+}
+
+.share .share-recipe a {
+    width: 25%;
+    border-radius: 2rem;
+}
+    /* End of the SHARE Section */
+
+    /* FOOTER Section */
+.top-button {
+    background-color: red;
+    position: fixed;
+    bottom: 2%;
+    right: 2%;
+    font-size: 1.2rem;
+    color: white;
+    cursor: pointer;
+    padding: 1rem;
+    border-radius: 4px;
+    display: block;
+    border: none;
+    outline: none;
+    z-index: 5;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: space-between;
+    background-color: var(--footer-bg);
+    color: var(--footer-text-color);
+    font-size: 0.9rem;
+    padding: 2rem;
+    width: 100%;
+}
+
+.footer .footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.footer .contact-us {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: space-between;
+    width: 25%;
+    flex-wrap: nowrap;
+    padding: 0 5% 0 0;
+}
+
+.footer .footer-container .socials{
+    display: flex;
+    flex-direction: row;
+    margin: 1rem 1rem 1rem 0;
+}
+
+.footer .footer-container .faq {
+    width: 25%;
+    padding: 0 5% 0 0;
+}
+
+
+.footer .footer-container .contact-us a {
+    width: 4rem;
+    font-size: 1.3rem;
+    height: auto;
+    color: rgba(255, 0, 0, 0.805);
+    margin: 0 1rem 1rem 0;
+}
+
+.footer .footer-container .blog-posts {
+    width: 25%;
+}
+
+.footer .footer-container .blog-posts .blog-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.footer-container .blog-post {
+    display: flex;
+    flex-direction: row;
+    margin: 1rem 0 0 0;
+    border-bottom: 2px solid #888;
+}
+
+.footer .blog-post .blog-image {
+    width: 3rem;
+    margin-right: 1rem;
+}
+
+.footer .blog-post .blog-image img{
+   width: 100%;
+   height: auto;
+   border-radius: 1rem;
+}
+
+.footer .blog-posts, .footer .faq, .footer .others {
+    width: 20%;
+    margin-right: 5%;
+}
+
+.footer input[type=email] {
+    background-color: var(--primary-background);
+    color: #888;
+    box-sizing: border-box;
+    border: 1px solid #222;
+    border-radius: 8px;
+    outline: 0;
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding: 0.8rem 1rem;
+    width: 60%;
+    height: 50px;
+    transition: width 0.5s ease-in-out;
+    caret-color: teal;
+    margin: 0.5rem 0 2rem 0;
+}
+
+.footer input[type=email]::placeholder {
+    color: #999;
+    font-size: 1rem;
+}
+
+.footer input[type=email]:focus {
+    width: 90%;
+    border: 2px solid teal;
+}
+
+.footer .newsletter {
+    display: flex;
+    flex-direction: column;
+}
+
+/* The subsc */
+.footer .newsletter .subscribe {
+    color: var(--primary-link-colorlink-color);
+    background-color: var(--primary-link-background);
+    width: 70%;
+    padding: 0.9rem;
+}
+
+.footer .newsletter .subscribe:hover{
+    color: #fff;
+    background-color: red;
+}
+
+        /* The SHARE INPUT FIELDS */
+.footer form label {
+    display: block;
+    font-weight: 500;
+    padding-bottom: 1rem;
+}
+
+.footer .foot {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin: auto;
+    margin-top: 2rem;
+}
+
+.footer .foot button {
+    font-size: 0.9rem;
+    background-color: var(--footer-bg);
+    color: var(--footer-text-color);
+    outline: 0;
+    border: 0;
+    margin-left: 8px;
+    text-decoration: underline;
+}
+
+
+
+
+
