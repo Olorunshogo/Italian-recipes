@@ -35,7 +35,6 @@ body {
 }
 
 .page-container {
-    padding: 1rem 3rem;
     position: relative;
 }
 
@@ -103,6 +102,39 @@ h1, h2, h3, h4, h5, h6 {
     margin-right: 0.4rem;
 }
 
+    /* The NAVIGATIONS */
+nav {
+    position: fixed;
+    top: 0;
+    background-color: #111;
+    z-index: 99;
+    width: 100%;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    height: var(--nav-bar-height);
+    width: 100%;    
+}
+
+.nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.nav ul li {
+    margin: 0.3rem 0.8rem;
+}
+
+.nav ul li a, .best-recipes .recipes-bar ul li a {
+    color: #888;
+    font-size: 1rem;
+}
+
 /* View Recipe link and the arrow in the fixed button */
 .primary-link .fa-solid, .top-button .fa-solid {
     color: #fff;
@@ -116,7 +148,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: baseline;
 }
 
@@ -127,6 +159,7 @@ h1, h2, h3, h4, h5, h6 {
 .logo svg {
     width: 4rem;
     height: 3rem;
+    padding-top: 0.5rem;
 }
     /* End of the EAT-ITALIAN LOGO */
 
@@ -137,14 +170,14 @@ h1, h2, h3, h4, h5, h6 {
   background-image: url('/Images/tabler--search.svg');
   background-position: 8px;
   background-repeat: no-repeat;
-  background-size: 26px;
+  background-size: 20px;
   box-sizing: border-box;
   border: 1px solid #222;
   border-radius: 8px;
   outline: 0;
   font-size: 1.2rem;
   font-weight: 400;
-  padding: 0.8rem 1rem 0.8rem 3rem;
+  padding: 0.8rem 1rem 0.8rem 2rem;
   width: 70%;
   height: 50px;
   transition: width 0.5s ease-in-out;
@@ -153,7 +186,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .forms input[type=search]::placeholder {
   color: teal;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   padding-left: 1rem;
 }
 
@@ -163,31 +196,6 @@ h1, h2, h3, h4, h5, h6 {
 }
     /* End of the SEARCH INPUT FIELD */
 
-    /* The NAVIGATIONS */
-.nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: baseline;
-    height: var(--nav-bar-height);
-    width: 100%;
-}
-
-.nav ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-
-.nav ul li {
-    margin: 0.3rem 0.8rem;
-}
-
-.nav ul li a, .best-recipes .recipes-bar ul li a {
-    color: #888;
-    font-size: 1rem;
-}
-
 .primary-link {
     color: var(--primary-link-color);
     display: block;
@@ -196,6 +204,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 35%;
     padding: 1rem;
     text-align: center;
+    font-weight: 600;
 }
 
 .primary-link:hover {
@@ -220,15 +229,16 @@ h1, h2, h3, h4, h5, h6 {
 .showcase {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: 100%;
+    margin-top: var(--nav-bar-height);
 }
 
 .showcase .chefs {
     background-image: radial-gradient(circle, rgb(109, 9, 9, 0.5) 40%, var(--secondary-background) 30%, var( --primary-background) 30%);
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: 40%;
 }
 
@@ -250,9 +260,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .showcase .chefs .row1 #showcase-food img {
-    width: 20vw;
-    height: 15vw;
-    border-radius: 50%;
+    width: 15vw;
+    height: auto;
+    border-radius: 10%;
 }
 
 .showcase .chefs .row2, .showcase .chefs .row1 #chief-chef {
@@ -266,16 +276,22 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 50%;
 }
 
+.showcase .space {
+    width: 15%;
+}
+
 .showcase .chefs .desc {
     font-size: 1rem;
-    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .showcase .texts {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    width: 60%;
+    width: 45%;
+    margin-top: 2rem;
 }
 
 .showcase .texts p {
@@ -362,8 +378,8 @@ h1, h2, h3, h4, h5, h6 {
 .secondary-link {
     text-transform: uppercase;
     text-align: center;
-    font-size: 1rem;
-    font-weight: 500;
+    font-size: 1.2rem;
+    font-weight: 600;
     color: var(--secondary-link-color);
     background-color: var(--secondary-link-background);
     width: 70%;
@@ -402,7 +418,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .about-us .row1 .image #ingredients {
-    width: 80%;
+    width: 90%;
     height: auto;
     border-radius: 10%;
     margin-top: 2rem;
@@ -432,8 +448,9 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.2rem;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    width: 210px;
+    justify-content: space-evenly;
+    width: 12rem;
+    height: auto;
     background-color: #000;
     border-radius: 8px;
     color: rgb(200, 39, 39);
@@ -442,14 +459,13 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     box-shadow: 4px;
     bottom: 10%;
-    right: 10%;
+    right: 0%;
     position: absolute; 
 }
 
 .about-us #ideal svg {
     width: 3rem;
     height: auto;
-    padding: 0.1rem;
 }
 
 .about-us .description {
@@ -632,7 +648,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.2rem;
     font-weight: 400;
     padding: 0.8rem 1rem;
-    width: 60%;
+    width: 70%;
     height: 50px;
     transition: width 0.5s ease-in-out;
     caret-color: teal;
@@ -792,7 +808,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--primary-link-colorlink-color);
     background-color: var(--primary-link-background);
     width: 70%;
-    padding: 0.9rem;
+    padding: 1rem 0.2rem;
 }
 
 .footer .newsletter .subscribe:hover{
@@ -826,6 +842,75 @@ h1, h2, h3, h4, h5, h6 {
     text-decoration: underline;
 }
 
+@media only screen and (max-width: 1480px) {
+        /* The EAT-ITALIAN LOGO */
+    .logo {
+        font-size: 1.9rem;
+    }
+    /* End of the EAT-ITALIAN LOGO */
+
+    .nav ul li {
+        margin: 0.3rem 0.5rem;
+    }
+
+    .showcase .chefs {
+        width: 45%;
+    }
+
+    .showcase .space {
+        width: 5%;
+    }
+
+    .showcase .texts {
+        width: 50%;
+    }
+
+    .secondary-link {
+        font-size: 1rem;
+        font-weight: 500;
+        width: 60%;
+    }
+
+    .best-recipes .gallery .row .highlight .desc h3 {
+        font-size: 1.1rem;
+    }
+
+    .about-us .row1 .image #ideal {
+        bottom: 15%;
+        right: 4%;
+    }
+
+    .share .image img{
+        width: 90%;
+    }
+
+    .share .share-recipe p {
+        margin-bottom: 0.5rem;
+    }
+
+    .share form label {
+        font-weight: 500;
+        font-size: 1.3rem;
+    }
+
+    .share input[type=text], .share input[type=textarea] {
+        font-size: 1.2rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    /* The EAT-ITALIAN LOGO */
+    .logo {
+        font-size: 1.9rem;
+    }
+    /* End of the EAT-ITALIAN LOGO */
+
+    .nav ul li {
+        margin: 0.3rem 0.5rem;
+    }
+
+}
 
 
 
