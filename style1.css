@@ -260,7 +260,7 @@ nav {
 }
 
 .showcase .chefs .row1 #showcase-food img {
-    width: 15vw;
+    width: 19vw;
     height: auto;
     border-radius: 10%;
 }
@@ -271,7 +271,7 @@ nav {
 }
 
 .showcase .chefs .row2 img, .showcase .chefs .row1 #chief-chef img {
-    width: 40%;
+    width: 30%;
     height: auto;
     border-radius: 50%;
 }
@@ -855,6 +855,8 @@ nav {
 
     .showcase .chefs {
         width: 45%;
+        display: flex;
+        justify-content: space-around;
     }
 
     .showcase .space {
@@ -865,10 +867,19 @@ nav {
         width: 50%;
     }
 
+    .showcase .texts h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        line-height: normal;
+    }
+    
+    .primary-link {
+        width: 50%;
+    }
+
     .secondary-link {
         font-size: 1rem;
         font-weight: 500;
-        width: 60%;
     }
 
     .best-recipes .gallery .row .highlight .desc h3 {
