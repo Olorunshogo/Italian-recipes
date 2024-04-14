@@ -7,16 +7,14 @@
 
     /* Pre-defined settings */
 :root {
-    --primary-background: #000000;
-    --secondary-background: #111111;
-    --text-color: #fff;
-    --primary-link-background: rgba(246, 0, 0, 0.9);
-    --primary-link-color: #f2f2f2;
-    --secondary-link-background: rgba(246, 246, 246, 0.9);
-    --secondary-link-color: red;
     --nav-bar-height: 5rem;
-
-    --footer-bg: rgba(9, 9, 9, 1.0);
+    --primary-background: #010101;
+    --secondary-background: rgba(9, 9, 9, 1.0);
+    --text-color: #e7e7e7;
+    --primary-link-color: rgba(246, 0, 0, 0.85);
+    --primary-link-background: #000;
+    --secondary-link-color: rgba(240, 240, 240, 1.0);
+    --secondary-link-background: #000;    
     --footer-text-color: rgba(200, 200, 200, 0.8);
     
 }
@@ -72,20 +70,92 @@ p {
 
     /* BUTTONS */
 .btn {
-    border-radius: 3rem;
     text-align: center;
     border: none;
-    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    margin: 1rem 0;
     font-weight: 500;
-    text-transform: uppercase;
     letter-spacing: 1px;
     outline: none;
     text-decoration: none;
-    transition: all 0.4s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    border: 2px solid grey;
+    border-radius: 1rem;
+    font-weight: 600;
 }  
 
 .btn:active {
     transform: scale(0.95);
+}
+
+.primary-link {
+    display: block;
+    color: var(--primary-link-color);
+    background-color: var(--primary-background);
+    border: 2px solid var(--primary-link-color);
+    font-size: 1.5rem;
+    width: 40%;
+}
+
+.primary-link:hover, .subscribe:hover {
+    transform: scale(1.05);
+    /* box-shadow: 0 12px 16px 0 rgba(246,0,0,0.50), 0 17px 50px 0 rgba(0,0,0,0.19); */
+}
+
+.secondary-link {
+    text-transform: capitalize;
+    font-size: 1rem;
+    color: var(--secondary-link-color);
+    background-color: var(--secondary-link-background);
+    display: block;
+    width: 200px;
+}
+
+.secondary-link:active, .read-more:active {
+    transform: scale(0.95);
+}
+    
+.secondary-link:hover {
+    transform: scale(1.05);
+}
+
+#active{
+    color: var(--primary-link-color);
+    border: 2px solid var(--primary-link-color);
+    transition: all 0.5s ease-in-out;
+}
+
+#active:hover{
+    transform: scale(1.05);
+    color: red;
+    border: 2px solid red;
+}
+
+.subscribe {
+    display: block;
+    color: var(--primary-link-color);
+    background-color: var(--primary-background);
+    border: 2px solid var(--primary-link-color);
+    font-size: 1.2rem;
+    width: 80%;
+}
+
+.top-button {
+    background-color: red;
+    text-align: center;
+    width: 100px;
+    position: fixed;
+    bottom: 10%;
+    right: 2%;
+    font-size: 1.2rem;
+    color: white;
+    cursor: pointer;
+    padding: 1rem;
+    border-radius: 4px;
+    display: block;
+    border: none;
+    outline: none;
+    z-index: 5;
 }
 
     /* HEADERS */
@@ -98,8 +168,8 @@ h1, h2, h3, h4, h5, h6 {
         /* ICONS */
 .fa-solid {
     color: rgba(255, 0, 0, 0.805);
-    font-size: 1.3rem;
-    margin-right: 0.4rem;
+    font-size: 1.1rem;
+    margin-right: 4px;
 }
 
     /* The NAVIGATIONS */
@@ -153,7 +223,7 @@ nav {
 }
 
 .logo .italian {
-    color: var(--primary-link-background);
+    color: red;
 }
 
 .logo svg {
@@ -178,7 +248,7 @@ nav {
   font-size: 1.2rem;
   font-weight: 400;
   padding: 0.8rem 1rem 0.8rem 2rem;
-  width: 70%;
+  width: 250px;
   height: 50px;
   transition: width 0.5s ease-in-out;
   caret-color: teal;
@@ -191,26 +261,10 @@ nav {
 }
 
 .forms input[type=search]:focus {
-  width: 100%;
+  width: 350px;
   border: 2px solid teal;
 }
     /* End of the SEARCH INPUT FIELD */
-
-.primary-link {
-    color: var(--primary-link-color);
-    display: block;
-    background-color: var(--primary-link-background);
-    margin: 2rem 0;
-    width: 35%;
-    padding: 1rem;
-    text-align: center;
-    font-weight: 600;
-}
-
-.primary-link:hover {
-    background-color: rgba(246, 0, 0, 1.0);
-    /* box-shadow: 0 12px 16px 0 rgba(246,0,0,0.50), 0 17px 50px 0 rgba(0,0,0,0.19); */
-}
 
 /* The HOME button and LOGIN link */
 .nav #home, .nav ul li #login-link, .best-recipes .recipes-bar #all {
@@ -239,7 +293,7 @@ nav {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 40%;
+    width: 45%;
 }
 
 .showcase .chefs .row1, .showcase .chefs .row2 {
@@ -260,7 +314,7 @@ nav {
 }
 
 .showcase .chefs .row1 #showcase-food img {
-    width: 19vw;
+    width: 18vw;
     height: auto;
     border-radius: 10%;
 }
@@ -277,7 +331,7 @@ nav {
 }
 
 .showcase .space {
-    width: 15%;
+    width: 10%;
 }
 
 .showcase .chefs .desc {
@@ -303,6 +357,7 @@ nav {
     flex-wrap: wrap;
     font-size: 5rem;
     font-weight: 700;
+    line-height: 1.3;
 }
     /* End of the SHOWCASE Section */
 
@@ -374,28 +429,6 @@ nav {
     font-weight: 600;
     text-transform: uppercase;
 }
-
-.secondary-link {
-    text-transform: uppercase;
-    text-align: center;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--secondary-link-color);
-    background-color: var(--secondary-link-background);
-    width: 70%;
-    margin: 1rem 0;
-    padding: 1rem;
-    transition: all 0.4s ease-in-out;
-    display: block;
-}
-
-.secondary-link:active, .read-more:active {
-    transform: scale(0.95);
-}
-    
-.secondary-link:hover {
-    background-color: #ffffff;
-}
     /* End of the BEST RECIPES Section */
 
     /* ABOUT US Section */
@@ -410,11 +443,15 @@ nav {
     display: flex;
     flex-direction: row;
     width: 100%;
+    padding-bottom: 1rem;
 }
 
 .about-us .row1 .image {
     width: 50%;
     position: relative;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
 }
 
 .about-us .row1 .image #ingredients {
@@ -427,10 +464,10 @@ nav {
 .about-us .row1 .image #chef {
     width: 20%;
     height: auto;
-    background-color: #fff;
+    background-color: #111;
     border-radius: 50%;
     top: 0;
-    right: 10%;
+    right: 4%;
     position: absolute;
 }
 
@@ -458,7 +495,7 @@ nav {
     font-size: 1.2rem;
     font-weight: 600;
     box-shadow: 4px;
-    bottom: 10%;
+    bottom: 5%;
     right: 0%;
     position: absolute; 
 }
@@ -470,6 +507,9 @@ nav {
 
 .about-us .description {
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .about-us .description h2 {
@@ -481,38 +521,6 @@ nav {
     font-weight: 400;
     font-size: 1rem;
     margin: 1rem 0;
-}
-
-    /* Read more buttons */
-.read-more {
-    padding: 1rem;
-    width: 180px;
-    border-radius: 8px;
-    color: #888;
-    border: 2px solid grey;
-    text-transform: capitalize;
-    font-size: 1rem;
-    font-weight: 600;
-    margin: 1rem 0;
-    text-align: center;
-    transition: all 0.5s ease-in-out;
-}
-
-.read-more:hover {
-    color: #fff;
-    border: 2px solid #fff;
-}
-
-#active{
-    color: red;
-    border: 2px solid rgba(246, 0, 0, 0.8);
-    transition: all 0.5s ease-in-out;
-}
-
-#active:hover{
-    transform: scale(0.95);
-    color: red;
-    border: 2px solid red;
 }
 
 .about-us .row2 .others {
@@ -600,18 +608,14 @@ nav {
 .share {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     width: 100%;
-}
-
-.share .share-recipe {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
 }
 
 .share .image {
     width: 50%;
     height: auto;
+    margin: auto;
 }
 
 .share .image img{
@@ -620,16 +624,20 @@ nav {
     border-radius: 10%;
 }
 
+.share .share-recipe {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
 .share .share-recipe h2 {
     font-size: 2rem;
     font-weight: 600;
-    padding-bottom: 1rem;
 }
 
 .share .share-recipe p {
     font-weight: 400;
     font-size: 1.2rem;
-    margin-bottom: 1rem;
 }
         /* The SHARE INPUT FIELDS */
 .share form label {
@@ -664,29 +672,9 @@ nav {
     width: 90%;
     border: 2px solid teal;
 }
-
-.share .share-recipe a {
-    width: 25%;
-    border-radius: 2rem;
-}
     /* End of the SHARE Section */
 
     /* FOOTER Section */
-.top-button {
-    background-color: red;
-    position: fixed;
-    bottom: 2%;
-    right: 2%;
-    font-size: 1.2rem;
-    color: white;
-    cursor: pointer;
-    padding: 1rem;
-    border-radius: 4px;
-    display: block;
-    border: none;
-    outline: none;
-    z-index: 5;
-}
 
 .footer {
     display: flex;
@@ -717,24 +705,23 @@ nav {
     padding: 0 5% 0 0;
 }
 
+.footer .footer-container .contact-us a {
+    width: 4rem;
+    font-size: 1.3rem;
+    height: auto;
+    color: rgba(246, 0, 0, 0.9);
+    margin: 0 1rem 1rem 0;
+}
+
 .footer .footer-container .socials{
     display: flex;
     flex-direction: row;
-    margin: 1rem 1rem 1rem 0;
+    margin: 1rem 0.5rem 1rem 0;
 }
 
 .footer .footer-container .faq {
     width: 25%;
     padding: 0 5% 0 0;
-}
-
-
-.footer .footer-container .contact-us a {
-    width: 4rem;
-    font-size: 1.3rem;
-    height: auto;
-    color: rgba(255, 0, 0, 0.805);
-    margin: 0 1rem 1rem 0;
 }
 
 .footer .footer-container .blog-posts {
@@ -751,12 +738,12 @@ nav {
 .footer-container .blog-post {
     display: flex;
     flex-direction: row;
-    margin: 1rem 0 0 0;
+    margin: 4px;
     border-bottom: 2px solid #888;
 }
 
 .footer .blog-post .blog-image {
-    width: 3rem;
+    width: 2.5rem;
     margin-right: 1rem;
 }
 
@@ -780,12 +767,12 @@ nav {
     outline: 0;
     font-size: 1.2rem;
     font-weight: 400;
-    padding: 0.8rem 1rem;
-    width: 60%;
+    padding: 0.5rem 1rem;
+    width: 70%;
     height: 50px;
     transition: width 0.5s ease-in-out;
     caret-color: teal;
-    margin: 0.5rem 0 2rem 0;
+    margin: 0.5rem 0;
 }
 
 .footer input[type=email]::placeholder {
@@ -794,7 +781,7 @@ nav {
 }
 
 .footer input[type=email]:focus {
-    width: 90%;
+    width: 100%;
     border: 2px solid teal;
 }
 
@@ -803,27 +790,13 @@ nav {
     flex-direction: column;
 }
 
-/* The subsc */
-.footer .newsletter .subscribe {
-    color: var(--primary-link-colorlink-color);
-    background-color: var(--primary-link-background);
-    width: 70%;
-    padding: 1rem 0.2rem;
-}
-
-.footer .newsletter .subscribe:hover{
-    color: #fff;
-    background-color: red;
-}
-
-        /* The SHARE INPUT FIELDS */
+    /* The SHARE INPUT FIELDS */
 .footer form label {
     display: block;
     font-weight: 500;
-    padding-bottom: 1rem;
 }
 
-.footer .foot {
+.footer .centered-footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -832,7 +805,7 @@ nav {
     margin-top: 2rem;
 }
 
-.footer .foot button {
+.footer .centered-footer .button {
     font-size: 0.9rem;
     background-color: var(--footer-bg);
     color: var(--footer-text-color);
@@ -845,7 +818,7 @@ nav {
 @media only screen and (max-width: 1480px) {
         /* The EAT-ITALIAN LOGO */
     .logo {
-        font-size: 1.9rem;
+        font-size: 1.3rem;
     }
     /* End of the EAT-ITALIAN LOGO */
 
@@ -853,14 +826,28 @@ nav {
         margin: 0.3rem 0.5rem;
     }
 
+    .primary-link {
+        display: block;
+        color: var(--primary-link-color);
+        background-color: var(--primary-background);
+        border: 2px solid var(--primary-link-color);
+        font-size: 1.5rem;
+    }
+
     .showcase .chefs {
-        width: 45%;
+        width: 50%;
         display: flex;
         justify-content: space-around;
     }
 
+    .showcase .chefs .row1 #showcase-food img {
+        width: 22vw;
+        height: auto;
+        border-radius: 10%;
+    }
+
     .showcase .space {
-        width: 5%;
+        width: 0%;
     }
 
     .showcase .texts {
@@ -868,9 +855,9 @@ nav {
     }
 
     .showcase .texts h1 {
-        font-size: 1rem;
+        font-size: 4.1rem;
         font-weight: 600;
-        line-height: normal;
+        line-height: 1.2;
     }
     
     .primary-link {
@@ -886,8 +873,13 @@ nav {
         font-size: 1.1rem;
     }
 
+    .about-us .row1 .image #ingredients {
+        width: 90%;
+        margin-top: 1rem;
+    }
+
     .about-us .row1 .image #ideal {
-        bottom: 15%;
+        bottom: 10%;
         right: 4%;
     }
 
@@ -895,34 +887,41 @@ nav {
         width: 90%;
     }
 
-    .share .share-recipe p {
-        margin-bottom: 0.5rem;
-    }
-
     .share form label {
         font-weight: 500;
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
 
     .share input[type=text], .share input[type=textarea] {
-        font-size: 1.2rem;
         padding: 0.5rem 1rem;
+        margin: 0 0 0.3rem;
     }
+
 }
 
-@media only screen and (min-width: 1280px) {
+@media only screen and (max-width: 1280px) {
     /* The EAT-ITALIAN LOGO */
     .logo {
-        font-size: 1.9rem;
+        font-size: 1.7rem;
     }
     /* End of the EAT-ITALIAN LOGO */
 
     .nav ul li {
-        margin: 0.3rem 0.5rem;
+        margin: 0.3rem;
+    }
+
+    .best-recipes .gallery .row .highlight .desc h3 {
+        font-size: 0.8rem;
+    }
+
+    .about-us .row1 .image #chef {
+        background-color: #555;
+        right: 2%;
+        top: 5%;
+    }
+    
+    .about-us .row1 .image #ideal {
+        bottom: 10%;
     }
 
 }
-
-
-
-
