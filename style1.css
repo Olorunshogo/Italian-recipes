@@ -170,9 +170,22 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 4px;
 }
 
-    /* TOPNAV */
-.topnav {
-    display: none;
+    /* The NAVIGATIONS */
+nav {
+    position: fixed;
+    top: 0;
+    background-color: #111;
+    z-index: 99;
+    width: 100%;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    height: var(--nav-bar-height);
+    width: 100%;    
 }
 
 /* The EAT-ITALIAN LOGO */
@@ -230,23 +243,11 @@ h1, h2, h3, h4, h5, h6 {
   border: 2px solid teal;
 }
     /* End of the SEARCH INPUT FIELD */
-
-    /* The NAVIGATIONS */
-nav {
-    position: fixed;
-    top: 0;
-    background-color: #111;
-    z-index: 99;
-    width: 100%;
-}
-
-.nav {
+.sidebar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: baseline;
-    height: var(--nav-bar-height);
-    width: 100%;    
+    align-content: baseline;
 }
 
 .nav ul {
@@ -273,7 +274,7 @@ nav {
 }
 
 /* The HOME button and LOGIN link */
-.nav #home, .nav ul li #login-link, .best-recipes .recipes-bar #all {
+.nav #home, .nav ul li #account, .best-recipes .recipes-bar #all {
     color: #eee;
 }
 
@@ -283,6 +284,10 @@ nav {
 }
 
 .nav .menu {
+    display: none;
+}
+
+.fa .fa-chevron-down {
     display: none;
 }
     /* End of the NAVIGATIONS Section */
@@ -923,12 +928,12 @@ nav {
 @media only screen and (max-width: 1024px) {
     /* The EAT-ITALIAN LOGO */
     .logo {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
     /* End of the EAT-ITALIAN LOGO */
 
     .nav ul li {
-        margin: 0.2rem;
+        margin: 0 2px;
     }
 
     .nav ul li a, .best-recipes .recipes-bar ul li a {
@@ -975,21 +980,24 @@ nav {
 /* Responsiveness for tablets. */
 @media only screen and (max-width: 960px) {
     /* The EAT-ITALIAN LOGO */
-    /* .logo {
-        font-size: 1.3rem;
-    } */
+    .logo {
+        font-size: 1.1rem;
+    }
     /* End of the EAT-ITALIAN LOGO */
+    .nav .menu {
+        display:flex;
+    }
 
-    /* .nav ul li {
-        margin: 0.2rem;
+    .nav {
+        display: flex;
     }
 
     .nav ul li a, .best-recipes .recipes-bar ul li a {
         color: #888;
-        font-size: 0.5rem;
+        font-size: 0.1rem;
     }
 
-    .nav .menu {
+    .nav ul {
         display: none;
     }
 
@@ -1000,6 +1008,11 @@ nav {
     .showcase .texts h1 {
         font-size: 2.8rem;
     }
+
+    .showcase p {
+        font-size: 8px
+    }
+    /*
     
     .about-us .row1 .image #chef {
         right: 2%;
