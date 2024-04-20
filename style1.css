@@ -1,3 +1,8 @@
+    /* HTML */
+html {
+    scroll-behavior: smooth;
+}
+
     /* Universal selector */
 * {
     padding: 0;
@@ -16,12 +21,14 @@
     --secondary-link-color: rgba(240, 240, 240, 1.0);
     --secondary-link-background: #000;    
     --footer-text-color: rgba(200, 200, 200, 0.8);
+
+    --sidebar-width: 200px;
 }
 
 body {
     background-color: var(--primary-background);
     color: var(--text-color);
-    font-family: "Brygada 1918", serif;
+    font-family: "DM Sans", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
     font-size: 2rem;
@@ -33,21 +40,22 @@ body {
 
 .page-container {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
 }
 
 .width {
     width: 80vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
     /* UTILITY SETTINGS */
 
     /* SECTIONS */
 section {
-    margin: 2rem 0;
+    margin: 70px 0;
 }
 
     /* UNORDERED LISTS */
@@ -59,6 +67,7 @@ ul {
 a {
     text-decoration: none;
     color: var(--text-color);
+    cursor: pointer;
 }
 
     /* PARAGRAPHS */
@@ -78,8 +87,9 @@ p {
     outline: none;
     text-decoration: none;
     transition: all 0.5s ease-in-out;
-    border: 2px solid grey;
-    border-radius: 1rem;
+    border: 1px solid grey;
+    border-radius: 8px;
+    cursor: pointer;
 }  
 
 .btn:active {
@@ -141,12 +151,12 @@ p {
 .top-button {
     background-color: red;
     text-align: center;
-    width: 40px;
+    width: 60px;
     height: auto;
     position: fixed;
     bottom: 10%;
     right: 2%;
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: white;
     cursor: pointer;
     padding: 0.8rem 0.5rem;
@@ -155,6 +165,19 @@ p {
     border: none;
     outline: none;
     z-index: 5;
+}
+
+.top-button i {
+    font-size: 1.5rem;
+    color: gray;
+}
+
+.open-button {
+    display: none;
+}
+
+.close-button {
+    display: none;
 }
 
     /* HEADERS */
@@ -168,6 +191,10 @@ h1, h2, h3, h4, h5, h6 {
 .fa-solid {
     color: rgba(255, 0, 0, 0.805);
     font-size: 4px;
+}
+
+#fa-chevron-down {
+    display: none;
 }
 
     /* The NAVIGATIONS */
@@ -214,7 +241,7 @@ nav {
     /* The SEARCH INPUT FIELD */
 .forms input[type=search] {
   background-color: var(--primary-background);
-  color: teal;
+  color: rgba(255, 0, 0, 0.8);
   background-image: url('/Images/tabler--search.svg');
   background-position: 8px;
   background-repeat: no-repeat;
@@ -223,31 +250,35 @@ nav {
   border: 1px solid #222;
   border-radius: 8px;
   outline: 0;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 400;
   padding: 0.5rem 1rem 0.5rem 2rem;
-  width: 180px;
+  width: 250px;
   height: 2rem;
   transition: width 0.5s ease-in-out;
-  caret-color: teal;
+  caret-color: var(--primary-link-color);
 }
 
 .forms input[type=search]::placeholder {
-  color: teal;
-  font-size: 0.9rem;
-  padding-left: 1rem;
+    caret-color: var(--primary-link-color);
+    font-size: 0.8rem;
+    padding-left: 1rem;
 }
 
 .forms input[type=search]:focus {
-  width: 100%;
-  border: 2px solid teal;
+  width: 400px;
+  border: 1px solid #555;
 }
     /* End of the SEARCH INPUT FIELD */
-.sidebar {
+
+#account {
+    background-color: var(--secondary-link-background);
+    border: none;
+    border-radius: 8px;
+    padding: 0.3rem 1rem;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-content: baseline;
+    justify-content: flex-end;
+    align-content: flex-end;
 }
 
 .nav ul {
@@ -257,7 +288,7 @@ nav {
 }
 
 .nav ul li {
-    margin: 0 6px;
+    margin: 0 8px;
     display: flex;
     flex-direction: row;
     align-items: baseline;
@@ -273,24 +304,20 @@ nav {
     color: #fff;
 }
 
-/* The HOME button and LOGIN link */
+/* The HOME button and PROFILE link */
 .nav #home, .nav ul li #account, .best-recipes .recipes-bar #all {
     color: #eee;
 }
 
-.nav #home:hover, .nav ul li #login-link:hover, .nav ul li a:hover, .best-recipes .recipes-bar ul li a:hover, .best-recipes .recipes-bar #all:hover {
-    color: teal;
+.nav #home:hover, .nav ul li #account:hover, .nav ul li a:hover, .best-recipes .recipes-bar ul li a:hover, .best-recipes .recipes-bar #all:hover {
+    color: red;
     transition: all 0.5s ease-in-out;
 }
 
-.nav .menu {
+/* SIDEBAR */
+.sidebar {
     display: none;
-}
-
-.fa .fa-chevron-down {
-    display: none;
-}
-    /* End of the NAVIGATIONS Section */
+}   
 
     /* SECTIONS */
 
@@ -300,7 +327,7 @@ nav {
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-    max-height: 900px;
+    max-height: 700px;
     margin-top: var(--nav-bar-height);
     overflow: hidden;
 }
@@ -310,7 +337,7 @@ nav {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 45%;
+    width: 50%;
     height: auto;
 }
 
@@ -322,8 +349,12 @@ nav {
 .showcase #showcase-food1 img, .showcase #showcase-food2 img{
     width: 100%;
     height: 100%;
-    border-radius: 3rem;
-    padding-top: 1rem;
+    border-radius: 2rem;
+    padding-top: 12px;
+}
+
+.showcase #showcase-pizza {
+    display: none;
 }
 
 .showcase .chefs .desc {
@@ -332,8 +363,12 @@ nav {
     justify-content: center;
 }
 
+.showcase #showcase-tablet {
+    display: none;
+}
+
 .showcase .space {
-    width: 15%;
+    width: 10%;
     height: 100%;
 }
 
@@ -346,13 +381,13 @@ nav {
 }
 
 .showcase .texts p {
-    font-size: 1.1rem;
+    font-size: 14px;
 }
 
 .showcase .texts h1 {
     display: flex;
     flex-wrap: wrap;
-    font-size: 7rem;
+    font-size: 5.2rem;
     font-weight: 700;
     line-height: 1.3;
 }
@@ -386,25 +421,38 @@ nav {
 .best-recipes .gallery {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 100%;
 }
 
 .best-recipes .gallery .row {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
     width: 100%;
     margin: 1rem 0;
+}
+
+.best-recipes .tablet {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 98%;
+    margin-right: 2%;
 }
 
 .best-recipes .gallery .row .highlight {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     background-color: var(--secondary-background);
-    width: 25%;
+    width: 50%;
+    margin: 0 1%;
     height: auto;
-    margin: 0 1rem 0 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.best-recipes .gallery .row .highlight:hover {
+    transform: scale(1.05);
 }
 
 .best-recipes .gallery .row .highlight img {
@@ -422,9 +470,9 @@ nav {
 }
 
 .best-recipes .gallery .row .highlight .desc h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: 500;
+    text-transform: capitalize;
 }
     /* End of the BEST RECIPES Section */
 
@@ -439,7 +487,7 @@ nav {
     display: flex;
     flex-direction: row;
     width: 100%;
-    padding-bottom: 1rem;
+    margin-bottom: 20px;
 }
 
 .about-us .row1 .image {
@@ -452,20 +500,19 @@ nav {
 }
 
 .about-us .row1 .image #ingredients {
-    width: 90%;
+    width: 85%;
     height: auto;
     border-radius: 10%;
-    margin-top: 1rem;
 }
 
 .about-us .row1 .image #chef {
-    width: 20%;
+    width: 15%;
     height: auto;
     background-color: #111;
     border-radius: 50%;
-    top: 0;
-    right: 4%;
     position: absolute;
+    top: -15%;
+    right: 9%;
 }
 
 .about-us .row1 .image #chef img {
@@ -479,7 +526,7 @@ nav {
 }
 
 .about-us .row1 .image #ideal {
-    font-size: 1.2rem;
+    font-size: 1rem; 
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -489,12 +536,11 @@ nav {
     border-radius: 8px;
     color: rgb(200, 39, 39);
     z-index: 2;
-    font-size: 1.1rem;
     font-weight: 600;
     box-shadow: 4px;
+    position: absolute;
     bottom: 5%;
-    right: 0%;
-    position: absolute; 
+    right: 7%;
 }
 
 .about-us #ideal svg {
@@ -517,26 +563,32 @@ nav {
 .about-us .description p {
     font-weight: 400;
     font-size: 1rem;
-    margin: 1rem 0;
+    margin: 8px 0;
 }
 
 .about-us .row2 .others {
     display: flex;
     flex-direction: row;
-    margin-top: 1rem;
+    justify-content: space-between;
     width: 100%;
+    margin-top: 100px;
 }
 
 .about-us .row2 .others .container {
     display: flex;
     flex-direction: column;
-    width: 32%;
-    margin-right: 1rem;
+    width: 30%;
+    transition: transform 0.5s ease-out;
+}
+
+.about-us .row2 .others .container:hover {
+    transform: scale(1.05);
 }
 
 .about-us .row2 .others .container img {
     width: 100%;
     height: auto;
+    border-radius: 10px 10px 0 0;
 }
 
 .about-us .row2 .others .container p {
@@ -555,7 +607,6 @@ nav {
     padding: 2rem;
     text-align: center;
     width: 100%;
-    border-radius: 0 0 20px 20px;
     border: 2px solid #888;
 }
 
@@ -569,35 +620,41 @@ nav {
 .top-chefs {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-content: space-between;
-    margin: auto;
 }
 
 .top-chefs .container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-content: space-between;
-
 }
 
 .top-chefs h2{
-    font-size: 1.9rem;
-    font-weight: 500;
+    font-size: 2rem;
+    font-weight: 600;
     margin-bottom: 2rem;
     color: #ddd;
 }
 
-.top-chefs .container img{
-    height: auto;
-    width: 50%;
-    border-radius: 100%;
+.top-cefs .chef-container {
+    display: flex;
+    flex-direction: column;
 }
 
-.top-chefs .container p {
+.top-chefs .container img{
+    display: block;
+    height: 200px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+}
+
+.top-chefs .chef-container p {
     font-size: 1rem;
     font-weight: 400;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
 }
     /* End of the TOP CHEFS Section */
 
@@ -658,7 +715,7 @@ nav {
     width: 80%;
     height: 45px;
     transition: width 0.5s ease-in-out;
-    caret-color: teal;
+    caret-color: red;
     margin: 0.5rem 0;
 }
   
@@ -675,12 +732,15 @@ nav {
 
     /* FOOTER Section */
 
+footer {
+    background-color: var(--secondary-background);
+}
+
 .footer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-content: space-between;
-    background-color: var(--secondary-background);
     color: var(--footer-text-color);
     font-size: 0.9rem;
     width: 100%;
@@ -762,7 +822,7 @@ nav {
     width: 80%;
     height: 45px;
     transition: width 0.5s ease-in-out;
-    caret-color: teal;
+    caret-color: red;
     margin: 0.5rem 0;
 }
 
@@ -796,42 +856,103 @@ nav {
 }
 
 /* Correcting the showcase h1 */
-@media only screen and (max-width: 2480px) {
+@media only screen and (max-width: 2110px) {
+    .logo {
+        font-size: 1.5rem;
+    }
+
     .showcase .texts h1 {
-        font-size: 5.5rem;
+        font-size: 70px;
     }
 
     .secondary-link {
         width: 170px;
     }
-}
 
-/* Responsiveness for desktop screen sizes */
-@media only screen and (max-width: 1910px) {
-    .showcase .texts h1 {
-        font-size: 4.5rem;
+    .best-recipes .gallery .row .highlight .desc h3 {
+        font-size: 20px;
     }
 
-    .secondary-link {
-        width: 150px;
+    .top-chefs .container img{
+        height: 170px;
+        width: 170px;
     }
 }
 
-@media only screen and (max-width: 1590px) {
+@media only screen and (max-width: 1650px) {
+    .logo {
+        font-size: 1.4rem;
+    }
+
     .showcase .texts h1 {
-        font-size: 4rem;
+        font-size: 58px;
     }
 
     .best-recipes .gallery .row .highlight .desc h3 {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
+    }
+
+    .forms input[type=search] {
+        width: 200px;
+    }
+      
+    .forms input[type=search]::placeholder {
+        font-size: 14px;
+    }
+      
+    .forms input[type=search]:focus {
+        width: 350px;
+    }
+
+    .about-us .row1 .image #chef {
+        top: -17%;
+        right: 9%;
+    }
+
+    .about-us .row1 .image #ideal {
+        bottom: 7%;
+        right: 6%;
+    }
+
+    .top-chefs .container img{
+        height: 160px;
+        width: 160px;
+    }
+
+    .top-chefs .container img{
+        height: 160px;
+        width: 160px;
     }
 }
 
 /* Responsiveness for Laptops with large screens. */
 @media only screen and (max-width: 1440px) {
+    .logo {
+        font-size: 1.45rem;
+    }
+
+    .profile {
+        padding: 0.5rem;
+    }
+    .forms input[type=search] {
+        width: 150px;
+    }
+      
+    .forms input[type=search]::placeholder {
+        font-size: 14px;
+    }
+      
+    .forms input[type=search]:focus {
+        width: 180px;
+    }
+
+    .nav ul li {
+        margin: 0 2px;
+    }
 
     .showcase .showcase-foods {
         width: 50%;
+        height: 650px;
     }
 
     .showcase .space {
@@ -843,11 +964,11 @@ nav {
     }
 
     .showcase .texts h1 {
-        font-size: 3.7rem;
+        font-size: 54px;
     }
     
     .primary-link {
-        width: 40%;
+        width: 45%;
     }
 
     .secondary-link {
@@ -855,12 +976,23 @@ nav {
     }
 
     .best-recipes .gallery .row .highlight .desc h3 {
-        font-size: 0.9rem;
+        font-size: 1rem;
+    }
+
+    .about-us .row1 .image #ingredients {
+        width: 90%;
+        height: auto;
+        border-radius: 10%;
+    }
+
+    .about-us .row1 .image #chef {
+        top: -15%;
+        right: 5%;
     }
 
     .about-us .row1 .image #ideal {
-        bottom: 10%;
-        right: 3%;
+        bottom: 6%;
+        right: 6%;
     }
 
     .share form label {
@@ -871,64 +1003,29 @@ nav {
         padding: 0.5rem 1rem;
         margin: 0.3rem 0;
     }
+
+    .top-chefs .container img{
+        height: 120px;
+        width: 120px;
+    }
+}
+
+@media only screen and (max-width: 1220px) {
+    .showcase .texts h1 {
+        font-size: 2.7rem;
+    }
+
+    .top-chefs .container img{
+        height: 100px;
+        width: 100px;
+    }
 }
 
 /* Responsiveness for Laptops with smaller screens. */
-@media only screen and (max-width: 1280px) {
-    .width {
-        width: 85vw
-    }
-    /* The EAT-ITALIAN LOGO */
-    .logo {
-        font-size: 1.4rem;
-    }
-    /* End of the EAT-ITALIAN LOGO */
-
-    .fa-solid {
-        font-size: 6px;
-    }
-
-    .nav ul li {
-        margin: 0.25rem;
-    }
-
-    .primary-link {
-        width: 40%;
-    }
-
-    .showcase .texts h1 {
-        font-size: 3.1rem;
-    }
-
-    .best-recipes .gallery .row .highlight .desc h3 {
-        font-size: 0.7rem;
-    }
-
-    .about-us .row1 .image #chef {
-        background-color: #555;
-        right: 2%;
-        top: 10%;
-    }
-    
-    .about-us .row1 .image #ideal {
-        bottom: 14%;
-    }
-
-    .footer .contact-us, .footer .blog-posts, .footer .faq, .footer .newsletter {
-        width: 25%;
-        padding-right: 0%;
-    }
-
-    .subscribe {
-        width: 120px;
-        font-size: 0.9rem;
-    }
-}
-
 @media only screen and (max-width: 1024px) {
     /* The EAT-ITALIAN LOGO */
     .logo {
-        font-size: 1.2rem;
+        font-size: 14px;
     }
     /* End of the EAT-ITALIAN LOGO */
 
@@ -936,13 +1033,12 @@ nav {
         margin: 0 2px;
     }
 
-    .nav ul li a, .best-recipes .recipes-bar ul li a {
-        color: #888;
-        font-size: 0.5rem;
-    }
-
     .nav .menu {
         display: none;
+    }
+
+    .nav ul li a, .best-recipes .recipes-bar ul li a {
+        font-size: 12px;
     }
 
     .primary-link {
@@ -950,7 +1046,7 @@ nav {
     }
 
     .showcase .texts h1 {
-        font-size: 2.8rem;
+        font-size: 37px;
     }
     
     .about-us .row1 .image #chef {
@@ -965,6 +1061,15 @@ nav {
 
     .about-us .description #disappear1 {
         display: none;
+    }
+
+    .about-us .row2 .others .description {
+        padding: 1.5rem;
+    }
+
+    .top-chefs .container img{
+        height: 100px;
+        width: 100px;
     }
 
     .subscribe {
@@ -978,83 +1083,393 @@ nav {
 }
 
 /* Responsiveness for tablets. */
-@media only screen and (max-width: 960px) {
+@media only screen and (max-width: 825px) {
+    .header, .section, .footer {
+        padding: 0;
+        margin: 1rem 0;
+    }
+    .width {
+        width: 90vw;
+        margin: auto;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
     /* The EAT-ITALIAN LOGO */
     .logo {
         font-size: 1.1rem;
     }
     /* End of the EAT-ITALIAN LOGO */
-    .nav .menu {
-        display:flex;
-    }
 
     .nav {
         display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-content: baseline;
     }
 
     .forms input[type=search] {
-        font-size: 0.9rem;
+        font-size: 14px;
         font-weight: 400;
         padding: 0.5rem 1rem 0.5rem 2rem;
-        width: 180px;
+        width: 200px;
         height: 2rem;
-        transition: width 0.5s ease-in-out;
-        caret-color: teal;
     }
 
     .forms input[type=search]::placeholder {
-        color: teal;
-        font-size: 0.8rem;
+        font-size: 12px;
         padding-left: 1rem;
-      }
+    }
       
-      .forms input[type=search]:focus {
-        width: 300px;
-        border: 2px solid teal;
-      }
-
-    .nav ul li a, .best-recipes .recipes-bar ul li a {
-        color: #888;
-        font-size: 0.1rem;
+    .forms input[type=search]:focus {
+        width: 350px;
     }
 
     .nav ul {
         display: none;
     }
 
-    .primary-link {
-        width: 50%;
+    /* SIDEBAR */
+    .fa-solid {
+        width: 1rem;
+    }
+    .sidebar {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--secondary-background);
+        position: fixed;
+        left: 0;
+        top: var(--nav-bar-height);
+        width: 0;
+        height: 100%;
+        z-index: 2;
+        overflow-x: hidden;
+        transition: all 0.5s ease-in-out;
+        box-shadow: 0 -5px 3px -3px black, 0 5px 3px -3px black;
     }
 
-    .showcase .texts h1 {
-        font-size: 2.8rem;
+    .sidebar div ul li{
+        border-bottom: 1px solid grey;
+        display: flex;
+        justify-content: baseline;
+        align-content: baseline;
     }
 
-    .showcase p {
-        font-size: 8px
+    .sidebar ul li :last-child {
+        border-bottom: none;
     }
-    /*
-    
-    .about-us .row1 .image #chef {
-        right: 2%;
-        top: 16%;
-    }
-    
-    .about-us .row1 .image #ideal {
-        bottom: 16%;
+
+    .sidebar ul li a {
         font-size: 1rem;
+        display: block;
+        padding: 0.6rem;
+        transition: all 0.3s ease-in-out;
     }
 
-    .about-us .description #disappear1 {
+    .sidebar ul li a:hover {
+        color: red;
+    }
+
+    .top-button {
+        width: 50px;
+    }
+
+    .sidebar ul li ul{
+        /* visibility: hidden;
+        opacity: 0;
+        display: none; */
+        position: absolute;
+        left: 0;
+        transition: all 0.5s ease-in-out;
+        width: 100%;
+    }
+
+    .sidebar ul li:hover > ul,
+    .sidebar ul li:focus-within > ul,
+    .sidebar ul li ul:hover{
+        visibility: visible;
+        display: block;
+        opacity: 1;
+    }
+
+    .sidebar ul li:hover > ul {
+        clear: both;
+        width: 100%;
+    }
+
+    .sidebar ul li ul {
+        display: block;
+        transition-duration: 0.5s;
+    }
+
+    .sidebar ul li ul li:hover,
+    .sidebar ul li ul li:focus-within {
+        cursor: pointer;
+        font-size: 13px;
+        border-bottom: 1px solid gray;
+    }
+
+    .sidebar ul li ul li {
+        font-size: 13px;
+        border-bottom: 1px solid gray;
+        padding: 0 8px;
+        display: flex;
+    }
+    /* End of SIDEBAR */
+
+    .open-button {
+        display: flex;
+        justify-content: baseline;
+        align-self: flex-end;
+        color: var(--primary-link-color);
+        background-color: #111;
+        width: 50px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .open-button i {
+        font-size: 20px;
+    }
+
+    .open-button:hover, .close-button:hover {
+        color: rgba(255, 0, 0, 0.8);
+    }
+
+    .close-button {
+        display: flex;
+        justify-content: flex-end;
+        align-self: flex-end;
+        color: var(--primary-link-color);
+        background-color: var(--secondary-background);
+        width: 50px;
+        border: none;
+        margin: 0.5rem 1rem;
+    }
+
+    #account {
+        display: flex;
+        flex-direction: row;
+        justify-content: baseline;
+        height: 50px;
+    }
+
+    .sidebar button i {
+        font-size: 25px;
+    }
+
+    .sidebar #fa-chevron-down {
+        display: flex;
+        margin-left: 80px;
+        color: red;
+    }
+
+    .primary-link {
+        width: 30%;
+        padding: 8px 18px;
+    }
+
+    .showcase {
+        display: flex;
+        flex-direction: column;
+        max-height: fit-content;
+        overflow: hidden;
+    }
+
+    .showcase .showcase-foods {
+        background-image: radial-gradient(circle, rgb(109, 9, 9, 0.5) 40%, var(--secondary-background) 30%, var( --primary-background) 30%);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: fit-content;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 4px;
+        width: 100%;
+
+    }
+
+    .showcase #showcase-food1, .showcase #showcase-food2 {
         display: none;
     }
 
-    .subscribe {
-        width: 100px;
-        font-size: 0.8rem;
+    .showcase #showcase-tablet {
+        display: flex;
+        width: 100%;
+        max-height: 400px;
+        margin-bottom: 1rem;
+    }
+
+    .showcase #showcase-tablet img {
+        width: 100%;
+        height: 300px
+    }
+
+    .space {
+        width: 0;
+    }
+
+    .showcase .texts {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        width: 100%;
+        margin-top: 0;
+    }
+
+    .showcase .texts h1 {
+        font-size: 40px;
+        width: 60%;
+        padding: 4px 0;
+    }
+    
+    .showcase .texts p {
+        font-size: 14px;
+    }
+    
+    .best-recipes h2 {
+        font-size: 24px;
+    }
+
+    .best-recipes .recipes-bar ul li a {
+        font-size: 4px;
+        margin: 0;
+    }
+
+    .best-recipes .recipes-bar #all {
+        margin-right: 2px;
+    }
+    
+    .best-recipes .gallery .row {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .best-recipes .tablet {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        width: 100%;
+    }
+    
+    .best-recipes .gallery .row .highlight {
+        width: 50%;
+    }
+    
+    .best-recipes .gallery .row .highlight .desc h3 {
+        font-size: 20px;
+    }
+
+    .about-us #chef, .about-us .row1 .image #ideal {
+        display: none;
+    }
+
+    .about-us .description #disappear {
+        display: none;
+    }
+
+    .about-us .description h2 {
+        font-size: 24px;
+    }
+
+    .about-us .description p {
+        font-size: 14px;
+    }
+
+    .about-us .secondary-link {
+        padding: 8px;
+        width: 120px;
+        font-size: 14px;
+    }
+
+    .about-us .row2 .others {
+        margin-top: 2rem;
+    }
+    
+    .about-us .row2 .others .container {
+        width: 32%;
+    }
+
+    .about-us .row2 .others .container p {
+        font-size: 14px;
+    }
+    
+    .about-us .row2 .others .description {
+        padding: 1rem;
+    }
+    
+    .about-us .row2 .others .description h3 {
+        font-size: 20px;
+        color: #eee;
+    }
+
+    .about-us .row2 .others .description p {
+        font-size: 14px;
+    }
+
+    .top-chefs h2{
+        font-size: 24px;
+    }
+
+    .top-chefs .container img{
+        width: 50px;
+        height: 50px;
+    }
+
+    .top-chefs .chef-container p {
+        font-size: 10px;
+    }
+    
+    .share .image img{
+        width: 100%;
+    }
+
+    .share .share-recipe h2 {
+        font-size: 24px;
+    }
+    
+    .share .share-recipe p {
+        font-size: 14px;
+    }
+
+    .share form label {
+        font-size: 16px
+    }
+    
+    .share input[type=text], .share input[type=textarea] {
+        font-size: 14px;
+        margin-bottom: 4px;
+    }
+      
+    .share input[type=text]::placeholder, .share input[type=textarea]::placeholder {
+        font-size: 12px;
+    }
+
+    .share .secondary-link {
+        padding: 6px 12px;
+        margin: 4px 0;
+        width: 120px;
+    }
+
+    footer {
+        margin: 0;
+        padding: 0;
     }
 
     .footer {
-        font-size: 0.7rem;
-    } */
+        font-size: 12px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer .footer-container .contact-us, .footer .footer-container .blog-posts, .footer .footer-container .faq, .footer .newsletter {
+        display: none;
+        width: 0;
+        padding: 0;
+    }
 }
