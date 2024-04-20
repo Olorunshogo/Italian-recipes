@@ -1133,8 +1133,10 @@ footer {
 
     /* SIDEBAR */
     .fa-solid {
-        width: 1rem;
+        display: inline;
+        margin-right: 0;
     }
+
     .sidebar {
         display: flex;
         flex-direction: column;
@@ -1153,8 +1155,6 @@ footer {
     .sidebar div ul li{
         border-bottom: 1px solid grey;
         display: flex;
-        justify-content: baseline;
-        align-content: baseline;
     }
 
     .sidebar ul li :last-child {
@@ -1164,7 +1164,7 @@ footer {
     .sidebar ul li a {
         font-size: 1rem;
         display: block;
-        padding: 0.6rem;
+        padding: 0.5rem;
         transition: all 0.3s ease-in-out;
     }
 
@@ -1254,6 +1254,7 @@ footer {
         display: flex;
         flex-direction: row;
         justify-content: baseline;
+        align-content: baseline;
         height: 50px;
     }
 
