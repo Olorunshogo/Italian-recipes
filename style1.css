@@ -15,7 +15,7 @@ html {
 
     /* Pre-defined settings */
 :root {
-    --nav-bar-height: 3.5rem;
+    --nav-bar-height: 5rem;
     --primary-background: #010101;
     --secondary-background: rgba(9, 9, 9, 1.0);
     --text-color: #e7e7e7;
@@ -24,7 +24,6 @@ html {
     --secondary-link-color: rgba(240, 240, 240, 1.0);
     --secondary-link-background: #000;    
     --footer-text-color: rgba(200, 200, 200, 0.8);
-
     --sidebar-width: 200px;
 }
 
@@ -58,7 +57,7 @@ body {
 
     /* SECTIONS */
 section {
-    margin: 70px 0;
+    margin-top: 6rem;
 }
 
     /* UNORDERED LISTS */
@@ -77,14 +76,15 @@ a {
 p {
     display: flex;
     flex-wrap: wrap;
+    font-weight: 400;
 }
 
     /* BUTTONS */
 .btn {
     text-align: center;
     border: none;
-    padding: 0.8rem 1rem;
-    margin: 0.8rem 0;
+    padding: 6px 1rem;
+    margin: 0.5rem 0;
     font-weight: 500;
     letter-spacing: 1px;
     outline: none;
@@ -99,27 +99,9 @@ p {
     transform: scale(0.95);
 }
 
-.primary-link {
-    display: block;
-    color: var(--primary-link-color);
-    background-color: var(--primary-background);
-    border: 2px solid var(--primary-link-color);
-    font-size: 1rem;
-    width: 200px;
-}
-
 .primary-link:hover, .subscribe:hover {
     transform: scale(1.05);
     /* box-shadow: 0 12px 16px 0 rgba(246,0,0,0.50), 0 17px 50px 0 rgba(0,0,0,0.19); */
-}
-
-.secondary-link {
-    text-transform: capitalize;
-    font-size: 1rem;
-    color: var(--secondary-link-color);
-    background-color: var(--secondary-link-background);
-    display: block;
-    width: 190px;
 }
 
 .secondary-link:active, .read-more:active {
@@ -202,10 +184,6 @@ i:hover {
     color: red;
 }
 
-#fa-chevron-down {
-    display: none;
-}
-
     /* The NAVIGATIONS */
 nav {
     position: fixed;
@@ -221,12 +199,17 @@ nav {
     justify-content: space-between;
     align-items: baseline;
     height: var(--nav-bar-height);
-    width: 100%;    
+    width: 100%;  
+    position: relative;  
+}
+
+.mobile-nav, .mobile-search {
+    display: none;
 }
 
 /* The EAT-ITALIAN LOGO */
 .logo {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 600;
     font-style: italic;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -234,6 +217,7 @@ nav {
     flex-direction: row;
     justify-content: space-between;
     align-items: baseline;
+    width: 230px;
 }
 
 .logo .italian {
@@ -241,53 +225,55 @@ nav {
 }
 
 .logo svg {
-    width: 2rem;
+    width: 3rem;
     height: auto;
     padding-top: 0.3rem;
 }
     /* End of the EAT-ITALIAN LOGO */
 
     /* The SEARCH INPUT FIELD */
-.forms input[type=search] {
+.nav .forms input[type=search] {
   background-color: var(--primary-background);
-  color: rgba(255, 0, 0, 0.8);
+  color: #999;
   background-image: url('/Images/tabler--search.svg');
   background-position: 8px;
   background-repeat: no-repeat;
-  background-size: 0.8rem;
+  background-size: 1rem;
   box-sizing: border-box;
   border: 1px solid #222;
   border-radius: 8px;
   outline: 0;
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: 400;
   padding: 0.5rem 1rem 0.5rem 2rem;
-  width: 250px;
-  height: 2rem;
+  width: 80%;
+  height: 2.5rem;
   transition: width 0.5s ease-in-out;
   caret-color: var(--primary-link-color);
 }
 
-.forms input[type=search]::placeholder {
+.nav .forms input[type=search]::placeholder {
     caret-color: var(--primary-link-color);
-    font-size: 0.8rem;
+    font-size: 1rem;
     padding-left: 1rem;
 }
 
-.forms input[type=search]:focus {
-  width: 400px;
+.nav .forms input[type=search]:focus {
+  width: 300px;
   border: 1px solid #555;
 }
     /* End of the SEARCH INPUT FIELD */
 
-#sign-up {
-    background-color: var(--secondary-link-background);
+.nav #sign-up {
+    background-color: rgb(200, 0, 0);
     border: none;
     border-radius: 8px;
-    padding: 0.3rem 1rem;
-    display: flex;
-    justify-content: flex-end;
-    align-content: flex-end;
+    padding: 0.4rem 1.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.nav #sign-up:hover {
+    background-color: rgb(220, 0, 0);
 }
 
 .nav ul {
@@ -297,7 +283,7 @@ nav {
 }
 
 .nav ul li {
-    margin: 0 8px;
+    margin-right: 8px;
     display: flex;
     flex-direction: row;
     align-items: baseline;
@@ -305,7 +291,7 @@ nav {
 
 .nav ul li a {
     color: #888;
-    font-size: 14px;
+    font-size: 1.1rem;
 }
 
 /* View Recipe link and the arrow in the fixed button */
@@ -323,6 +309,11 @@ nav {
     transition: all 0.5s ease-in-out;
 }
 
+.nav #sign-up i.fa-solid.fa-user {
+    color: #eee;
+    font-size: 1rem;
+}
+
 /* SIDEBAR */
 .sidebar {
     display: none;
@@ -336,32 +327,30 @@ nav {
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-    max-height: 650px;
+    max-height: 600px;
     margin-top: var(--nav-bar-height);
-    overflow: hidden;
 }
 
 .showcase .showcase-foods {
     background-image: radial-gradient(circle, rgb(109, 9, 9, 0.5) 40%, var(--secondary-background) 30%, var( --primary-background) 30%);
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-content: center;
     width: 50%;
-    margin-top: 10px;
+    margin-top: 0px;
     height: 100%;
 }
 
 .showcase #showcase-food1 {
-    margin-top: 10%;
+    margin-top: 2%;
     width: 90%;
-    height: 70%;
+    height: auto;
 }
 
 .showcase #showcase-food1 img{
     width: 100%;
     height: 100%;
-    border-radius: 2rem;
+    border-radius: 20px;
+    min-height: 350px;
 }
 
 .showcase #showcase-pizza {
@@ -382,20 +371,30 @@ nav {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    width: 50%;
-    margin-top: 2rem;
+    width: 45%;
+    margin-top: 1rem;
 }
 
 .showcase .texts p {
-    font-size: 14px;
+    font-size: 1.1rem;
 }
 
 .showcase .texts h1 {
     display: flex;
     flex-wrap: wrap;
-    font-size: 5.2rem;
+    font-size: 63px;
     font-weight: 700;
-    line-height: 1.3;
+    line-height: 1.2;
+}
+
+.showcase .primary-link {
+    display: block;
+    color: var(--primary-link-color);
+    background-color: var(--primary-background);
+    border: 1px solid var(--primary-link-color);
+    font-size: 1.1rem;
+    width: 200px;
+    text-transform: capitalize;
 }
     /* End of the SHOWCASE Section */
 
@@ -407,7 +406,7 @@ nav {
 }
 
 .best-recipes h2 {
-    font-size: 1.9rem;
+    font-size: 2.5rem;
     font-weight: 600;
     text-align: left;
 }
@@ -489,13 +488,22 @@ nav {
 }
 
 .best-recipes .gallery .row .highlight .desc h3 {
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: 500;
     text-transform: capitalize;
 }
 
 .best-recipes .gallery #last-highlight {
     margin-right: 0;
+}
+
+.best-recipes .secondary-link {
+    text-transform: capitalize;
+    font-size: 1.2rem;
+    color: var(--secondary-link-color);
+    background-color: var(--secondary-link-background);
+    display: block;
+    width: 190px;
 }
     /* End of the BEST RECIPES Section */
 
@@ -510,26 +518,27 @@ nav {
     display: flex;
     flex-direction: row;
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 3rem;
 }
 
 .about-us .row1 .image {
     width: 50%;
     position: relative;
-    flex-direction: column;
     display: flex;
     justify-content: center;
     align-content: center;
+    flex-direction: column;
 }
 
 .about-us .row1 .image #ingredients {
     width: 85%;
     height: auto;
-    border-radius: 10%;
+    border-radius: 2rem;
+    max-height: 450px;
 }
 
 .about-us .row1 .image #chef {
-    width: 15%;
+    width: 100px;
     height: auto;
     background-color: #111;
     border-radius: 50%;
@@ -549,11 +558,11 @@ nav {
 }
 
 .about-us .row1 .image #ideal {
-    font-size: 1rem; 
+    font-size: 1.2rem; 
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    width: 11rem;
+    width: 200px;
     height: auto;
     background-color: #000;
     border-radius: 8px;
@@ -580,12 +589,11 @@ nav {
 
 .about-us .description h2 {
     font-weight: 600;
-    font-size: 2.2rem;
+    font-size: 2.5rem;
 }
 
 .about-us .description p {
-    font-weight: 400;
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin: 8px 0;
 }
 
@@ -594,13 +602,13 @@ nav {
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-    margin-top: 100px;
+    margin-top: 70px;
 }
 
 .about-us .row2 .others .container {
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 32%;
     transition: transform 0.5s ease-out;
 }
 
@@ -611,11 +619,12 @@ nav {
 .about-us .row2 .others .container img {
     width: 100%;
     height: auto;
-    border-radius: 10px 10px 0 0;
+    max-height: 300px;
+    border-radius: 20px 20px 0 0;
 }
 
 .about-us .row2 .others .container p {
-    font-size: 1rem;
+    font-size: 1.1rem;
     display: flex;
     flex-wrap: wrap;
     text-align: center;
@@ -627,14 +636,17 @@ nav {
     justify-content: center;
     align-items: center;
     margin: auto;
-    padding: 2rem;
+    padding: 1rem;
     text-align: center;
     width: 100%;
-    border: 2px solid #888;
+    border: 1px solid #888;
+    min-height: 300px;
+    max-height: 400px;
+    overflow: auto;
 }
 
 .about-us .row2 .others .description h3 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: #eee;
 }
 
@@ -661,9 +673,9 @@ nav {
 }
 
 .top-chefs h2{
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 600;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     color: #ddd;
 }
 
@@ -674,8 +686,8 @@ nav {
 
 .top-chefs .container img{
     display: block;
-    height: 160px;
-    width: 160px;
+    height: 170px;
+    width: 170px;
     margin-left: auto;
     margin-right: auto;
     border-radius: 50%;
@@ -696,6 +708,7 @@ nav {
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
+    margin-bottom: 1rem;
 }
 
 .share .image {
@@ -719,19 +732,19 @@ nav {
 }
 
 .share .share-recipe h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 600;
 }
 
 .share .share-recipe p {
     font-weight: 400;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 }
         /* The SHARE INPUT FIELDS */
 .share form label {
     display: block;
     font-weight: 500;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
 }
 
 .share input[type=text], .share input[type=textarea] {
@@ -745,7 +758,7 @@ nav {
     font-weight: 400;
     padding: 0.5rem 1rem;
     width: 80%;
-    height: 45px;
+    height: 50px;
     transition: width 0.5s ease-in-out;
     caret-color: red;
     margin: 0.5rem 0;
@@ -758,7 +771,16 @@ nav {
   
 .share input[type=text]:focus, .share input[type=textarea]:focus, .share input[type=email]:focus {
     width: 100%;
-    border: 2px solid teal;
+    border: 2px solid #555;
+}
+
+.share .secondary-link {
+    text-transform: capitalize;
+    font-size: 1.2rem;
+    color: var(--secondary-link-color);
+    background-color: var(--secondary-link-background);
+    display: block;
+    width: 190px;
 }
     /* End of the SHARE Section */
 
@@ -774,7 +796,7 @@ footer {
     justify-content: space-between;
     align-content: space-between;
     color: var(--footer-text-color);
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     width: 100%;
     padding: 1rem 0;
 }
@@ -786,6 +808,10 @@ footer {
     align-content: space-between;
 }
 
+.footer .footer-container h3 {
+    font-size: 1.3rem;
+}
+
 .footer .footer-container .row1, .footer .footer-container .row2 {
     display: flex;
     flex-direction: row;
@@ -794,12 +820,13 @@ footer {
     width: 50%;
 }
 
-.footer .contact-us {
+.footer .contact-us, .footer .blog-posts, .footer .faq, .footer .newsletter {
     flex-wrap: wrap;
-    width: 47%;
-    padding-right: 3%;
+    width: 45%;
+    padding-right: 5%;
 }
 
+/* Footer Contact Us */
 .footer .contact-us i {
     font-size: 1rem;
 }
@@ -820,21 +847,17 @@ footer {
     font-size: 1.5rem;
 }
 
-.footer-container .blog-posts {
-    width: 47%;
-    padding-right: 3%;
-}
-
+/* Footer Blog Posts */
 .footer-container .blog-post {
     display: flex;
     flex-direction: row;
-    margin-bottom: 4px;
+    margin: 8px 0;
     border-bottom: 1px solid #888;
 }
 
 .footer .blog-post .blog-image {
-    width: 2.5rem;
-    margin: 4px;
+    width: 3rem;
+    margin: 2px 8px;
 }
 
 .footer .blog-post .blog-image img{
@@ -843,20 +866,11 @@ footer {
    border-radius: 1rem;
 }
 
-.footer .faq {
-    width: 47%;
-    padding-right: 3%;
-}
-
 /* The NEWSLETTER INPUT FIELDS */
-.footer .newsletter {
-    width: 47%;
-    padding-right: 3%;
-}
-
 .footer form label {
     display: block;
     font-weight: 500;
+    font-size: 1.5rem;
 }
 
 .footer input[type=email] {
@@ -870,7 +884,7 @@ footer {
     font-weight: 400;
     padding: 0.5rem 1rem;
     width: 80%;
-    height: 45px;
+    height: 50px;
     transition: width 0.5s ease-in-out;
     caret-color: red;
     margin: 0.5rem 0;
@@ -883,7 +897,7 @@ footer {
 
 .footer input[type=email]:focus {
     width: 100%;
-    border: 2px solid teal;
+    border: 2px solid #555;
 } 
 
 .footer .centered-footer {
@@ -891,46 +905,52 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 2rem;
 }
 
+.footer .centered-footer p {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .footer .centered-footer .button {
-    font-size: 0.9rem;
+    font-size: 1rem;
     background-color: var(--footer-bg);
     color: var(--footer-text-color);
     outline: 0;
     border: 0;
     margin-left: 8px;
-    text-decoration: underline;
+    text-decoration: none;
+    display: inline;
 }
 
 /* Correcting the showcase h1 */
-@media only screen and (max-width: 2110px) {
-    .logo {
-        font-size: 1.7rem;
-    }
-
-    .showcase .texts {
-        width: 40%;
-    }
-
-    .showcase .texts h1 {
-        font-size: 65px;
-    }
-
-    .secondary-link {
-        width: 170px;
-    }
-
-    .best-recipes .gallery .row .highlight .desc h3 {
-        font-size: 20px;
-    }
-}
-
 @media only screen and (max-width: 1650px) {
     .logo {
-        font-size: 1.5rem;
+        font-size: 1.7rem;
+        width: 200px;
+    }
+
+    section {
+        margin-top: 4rem;
+    }
+
+    .nav ul li a {
+        font-size: 1rem;
+    }
+
+    .nav .forms input[type=search] {
+        width: 200px;
+    }
+      
+    .nav .forms input[type=search]::placeholder {
+        font-size: 1rem;
+    }
+      
+    .nav .forms input[type=search]:focus {
+        width: 100%;
     }
 
     .showcase .texts {
@@ -938,49 +958,85 @@ footer {
     }
 
     .showcase .texts h1 {
-        font-size: 58px;
+        font-size: 57px;
     }
 
-    .best-recipes .gallery .row .highlight .desc h3 {
-        font-size: 1.2rem;
+    .showcase .texts p {
+        font-size: 1.1rem;
     }
 
-    .forms input[type=search] {
-        width: 200px;
-    }
-      
-    .forms input[type=search]::placeholder {
-        font-size: 14px;
-    }
-      
-    .forms input[type=search]:focus {
-        width: 100%;
+    .best-recipes .recipes-bar ul li a {
+        font-size: 1.1rem;
     }
 
     .about-us .row1 .image #chef {
-        top: -17%;
-        right: 9%;
+        top: -14%;
+        right: 10%;
+    }
+
+    .about-us .row1 .image #chef img {
+        width: 100%;
+        
     }
 
     .about-us .row1 .image #ideal {
-        bottom: 7%;
-        right: 6%;
+        bottom: 5%;
+        right: 5%;
+    }
+
+    .about-us .row2 .others .container p {
+        font-size: 1rem;
     }
 
     .about-us .row2 .others .description {
-        padding: 1.7rem;
+        padding: 1rem;
+        text-align: center;
+        min-height: 340px;
+        max-height: 350px;
     }
 
     .top-chefs .container img{
-        height: 150px;
-        width: 150px;
+        height: 140px;
+        width: 140px;
+    }
+
+    .footer .footer-container .row1 {
+        width: 55%;
+    }
+
+    .footer .footer-container .row2 {
+        width: 45%;
+    }
+
+    .footer .contact-us, .footer .newsletter {
+        width: 43%;
+        padding-right: 2%;
+    }
+
+    footer .blog-posts, .footer .faq {
+        width: 53%;
+        padding-right: 2%;
     }
 }
 
 /* Responsiveness for Laptops with large screens. */
 @media only screen and (max-width: 1440px) {
+    section {
+        margin-top: 2rem;
+    }
+
+    :root {
+        --nav-bar-height: 4rem;
+    }
+
     .logo {
         font-size: 1.3rem;
+        width: 150px;
+    }
+
+    .logo svg {
+        width: 2.2rem;
+        height: auto;
     }
 
     i {
@@ -988,11 +1044,11 @@ footer {
         margin-right: 2px;
     }
 
-    .forms input[type=search] {
+    .nav .forms input[type=search] {
         width: 150px;
     }
       
-    .forms input[type=search]:focus {
+    .nav .forms input[type=search]:focus {
         width: 180px;
     }
 
@@ -1000,9 +1056,17 @@ footer {
         margin: 0 3px;
     }
 
+    .nav ul li a {
+        font-size: 14px;
+    }
+
     .showcase .showcase-foods {
         width: 50%;
         height: 400px;
+    }
+
+    .showcase #showcase-food1 img{
+        min-height: 330px;
     }
 
     .showcase .space {
@@ -1014,19 +1078,44 @@ footer {
     }
 
     .showcase .texts h1 {
-        font-size: 54px;
+        font-size: 57px;
+    }
+
+    .showcase .texts p {
+        font-size: 14px;
     }
     
-    .primary-link {
+    .showcase .primary-link {
         width: 190px;
     }
 
-    .secondary-link {
-        font-size: 1rem;
+    .best-recipes h2 {
+        font-size: 24px;
+    }
+
+    .best-recipes .recipes-bar ul li a {
+        font-size: 14px;
+    }
+
+    .best-recipes .secondary-link {
+        font-size: 14px;
+        width: 160px;
     }
 
     .best-recipes .gallery .row .highlight .desc h3 {
         font-size: 1rem;
+    }
+
+    .about-us .row1 p {
+        font-size: 14px;
+    }
+
+    .about-us .row1 {
+        margin-bottom: 15px;
+    }
+
+    .about-us .row1 h2 {
+        font-size: 24px;
     }
 
     .about-us .row1 .image #ingredients {
@@ -1036,17 +1125,30 @@ footer {
     }
 
     .about-us .row1 .image #chef {
-        top: -15%;
+        top: -13%;
         right: 5%;
+        width: 80px;
     }
 
     .about-us .row1 .image #ideal {
         bottom: 6%;
         right: 6%;
+        font-size: 14px;
+        width: 145px;
+    }
+
+    .about-us .row2 .others .container p {
+        font-size: 14px;
+    }
+
+    .about-us .row2 .others .description h3 {
+        font-size: 20px;
     }
 
     .about-us .row2 .others .description {
-        padding: 1.5rem;
+        padding: 1rem;
+        min-height: 300px;
+        max-height: 320px;
     }
 
     .share form label {
@@ -1058,19 +1160,87 @@ footer {
         margin: 0.3rem 0;
     }
 
+    .top-chefs h2 {
+        font-size: 24px;
+    }
+
     .top-chefs .container img{
         height: 100px;
         width: 100px;
     }
 
     .top-chefs .container p {
-        font-size: 18px;
+        font-size: 16px;
+    }
+
+    .share .share-recipe h2 {
+        font-size: 24px;
+    }
+
+    .share .share-recipe p {
+        font-size: 14px;
+    }
+
+    .share form label {
+        font-size: 1.3rem;
+    }
+    
+    .share input[type=text], .share input[type=textarea] {
+        height: 45px;
+        margin: 6px 0;
+    }
+      
+    .share input[type=text]::placeholder, .share input[type=textarea]::placeholder {
+        font-size: 14px;
+    }
+    
+    .share .secondary-link {
+        font-size: 1rem;
+        width: 140px;
+    }
+
+    .footer {
+        font-size: 14px;
+    }
+    
+    .footer .footer-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-content: space-between;
+    }
+    
+    .footer .footer-container h3 {
+        font-size: 1.1rem;
+    }
+    
+    /* The NEWSLETTER INPUT FIELDS */
+    .footer form label {
+        font-size: 1.2rem;
+    }
+    
+    .footer input[type=email] {
+        font-size: 14px;
+        height: 45px;
+    }
+    
+    .footer input[type=email]::placeholder {
+        font-size: 12px;
+    }
+    
+    .footer .centered-footer {
+        margin-top: 1rem;
+    }
+
+    .footer .centered-footer .button {
+        font-size: 14px;
     }
 }
 
 @media only screen and (max-width: 1220px) {
     .logo {
-        font-size: 1rem;
+        font-size: 1.1rem;
+        width: 130px;
     }
 
     i {
@@ -1087,21 +1257,22 @@ footer {
         letter-spacing: 0.1px;
     }
 
-    .forms input[type=search] {
+    .nav .forms input[type=search] {
         width: 150px;
+        height: 40px;
     }
       
-    .forms input[type=search]:focus {
+    .nav .forms input[type=search]:focus {
         width: 170px;
     }
 
-    .showcase .showcase-foods {
-        width: 50%;
-        height: 400px;
+    .showcase .showcase-foods img {
+        min-height: 280px;
+        max-height: 300px;
     }
 
     .showcase .texts h1 {
-        font-size: 46px;
+        font-size: 45px;
     }
 
     .showcase .space {
@@ -1110,6 +1281,10 @@ footer {
     
     .showcase .texts {
         width: 50%;
+    }
+
+    .showcase .texts p {
+        font-size: 14px;
     }
 
     .about-us p {
@@ -1142,16 +1317,23 @@ footer {
 
     .about-us .row1 .image #ingredients {
         width: 90%;
-        height: 70%;
+        height: 85%;
         border-radius: 1rem;
     }
 
     .about-us .row1 .image #chef {
-        display: none;
+        top: -5%;
+        width: 60px;
+        height: auto;
     }
 
     .about-us .row1 .image #ideal {
-        display: none;
+        right: 7%;
+        bottom: 5%;
+    }
+
+    .about-us .row1 p {
+        margin: 4px 0;
     }
 
     /* Hidden texts */
@@ -1165,7 +1347,9 @@ footer {
     } */
 
     .about-us .row2 .others .description {
-        padding: 1.5rem;
+        padding: 0.5rem;
+        min-height: 300px;
+        max-height: 400px;
     }
 
     .share form label {
@@ -1238,6 +1422,70 @@ footer {
     }
 }
 
+@media only screen and (max-width: 1120px) {
+    .nav ul li:nth-child(6) {
+        display: none;
+    }
+
+    .about-us .row1 {
+        display: flex;
+        flex-direction: row-reverse;
+        width: 100%;
+        margin-bottom: 0px;
+    }
+    
+    .about-us .row1 .image #ingredients {
+        width: 90%;
+        height: auto;
+    }
+    
+    .about-us .row1 .image #chef {
+       display: none;
+    }
+    
+    .about-us .row1 .image #ideal {
+        display: none;
+    }
+    
+    .about-us .description h2 {
+        font-weight: 600;
+        font-size: 2.2rem;
+    }
+    
+    .about-us .description p {
+        font-weight: 400;
+        font-size: 12px;
+        margin: 8px 0;
+    }
+ 
+    .about-us .row2 .others {
+        margin-top: 50px;
+    }
+
+    .about-us .row2 .others .container {
+        width: 32%;
+    }
+
+    .about-us .row2 .others .container p {
+        font-size: 12px;
+    }
+
+    .about-us .row2 .others .description {
+        display: flex;
+        padding: 0.5rem;
+        min-height: 250px;
+        max-height: 300px;
+    }
+
+    .about-us .row2 .others .description h3 {
+        font-size: 1.5rem;
+    }  
+
+    .footer .footer-container h3 {
+        font-size: 1rem;
+    }
+}
+
 /* Responsiveness for Laptops with smaller screens. */
 @media only screen and (max-width: 1024px) {
     /* The EAT-ITALIAN LOGO */
@@ -1259,18 +1507,13 @@ footer {
         margin-right: 2px;
     }
 
-    /* .nav ul li:nth-child(3) {
+    .nav ul li:nth-child(5), .nav ul li:nth-child(6) {
         display: none;
-    } */
+    }
 
     .nav #sign-up {
         padding: 8px 4px;
         font-size: 8px;
-    }
-
-    .nav i.fa-solid {
-        font-size: 4px;
-        margin-right: 0px;
     }
 
     .nav #sign-up i.fa-solid {
@@ -1278,39 +1521,41 @@ footer {
         margin-right: 4px;
     }
 
-    
+    .nav i.fa-solid {
+        font-size: 4px;
+        margin-right: 0px;
+    }
 
-    .forms input[type=search] {
+    .nav .forms input[type=search] {
+        background-position: 8px;
+        background-size: 12px;
         font-size: 12px;
-        width: 70px;
+        padding: 0.5rem 0.8rem;
+        width: 150px;
+        height: 2rem;
     }
       
-    .forms input[type=search]::placeholder {
+    .nav .forms input[type=search]::placeholder {
         caret-color: var(--primary-link-color);
         font-size: 12px;
-        padding-left: 1rem;
+        padding-left: 8px;
     }
       
-    .forms input[type=search]:focus {
-        width: 70px;
+    .nav .forms input[type=search]:focus {
+        width: 180px;
+        border: 1px solid #555;
     }
 
-    .primary-link {
-        width: 50%;
-    }
-
-    .showcase .showcase-foods {
-        margin-top: 0px;
-        height: 100%;
-    }
-    
-    .showcase #showcase-food1 {
-        margin-top: 20%;
-        height: 80%;
+    .showcase .primary-link {
+        width: 200px;
     }
 
     .showcase .texts h1 {
         font-size: 40px;
+    }
+
+    .showcase .texts p {
+        font-size: 12px;
     }
 
     .best-recipes .recipes-bar ul li a {
@@ -1322,7 +1567,13 @@ footer {
     }
 
     .about-us .row2 .others .description {
-        padding: 1rem;
+        padding: 0.5rem;
+        min-height: 250px;
+        max-height: 350px;
+    }
+
+    .top-chefs .container p {
+        font-size: 12px;
     }
 
     .top-chefs .container img{
@@ -1338,10 +1589,15 @@ footer {
 
 /* Responsiveness for tablets. */
 @media only screen and (max-width: 825px) {
+    :root {
+        --nav-bar-height: 3.4rem;
+    }
+
     .header, .section, .footer {
         padding: 0;
         margin: 1rem 0;
     }
+
     .width {
         width: 80vw;
         margin: auto;
@@ -1353,7 +1609,13 @@ footer {
 
     /* The EAT-ITALIAN LOGO */
     .logo {
-        font-size: 1.2rem;
+        font-size: 1rem;
+        width: 120px;
+    }
+
+    .logo svg {
+        height: 2rem;
+        width: 2rem
     }
     /* End of the EAT-ITALIAN LOGO */
 
@@ -1364,21 +1626,21 @@ footer {
         align-content: baseline;
     }
 
-    .forms input[type=search] {
+    .nav .forms input[type=search] {
         font-size: 14px;
         font-weight: 400;
         padding: 0.5rem 1rem 0.5rem 2rem;
-        width: 250px;
+        width: 200px;
         height: 2rem;
     }
 
-    .forms input[type=search]::placeholder {
+    .nav .forms input[type=search]::placeholder {
         font-size: 12px;
         padding-left: 1rem;
     }
       
-    .forms input[type=search]:focus {
-        width: 400px;
+    .nav .forms input[type=search]:focus {
+        width: 300px;
     }
 
     .nav ul {
@@ -1392,40 +1654,33 @@ footer {
         align-self: flex-end;
         color: var(--primary-link-color);
         background-color: #111;
-        width: 30px;
+        width: 50px;
         border: none;
         cursor: pointer;
+        padding: 0.5rem 1rem;
         transition: all 0.5s ease-in-out;
     }
 
-    .open-button i {
+    .open-button i.fa-solid.fa-bars {
         font-size: 20px;
     }
 
     .open-button:hover, .close-button:hover {
         color: rgba(255, 0, 0, 0.8);
+        background-color: #000;
     }
 
     .close-button {
         display: flex;
-        justify-content: flex-end;
+        justify-content: baseline;
         align-self: flex-end;
         color: var(--primary-link-color);
         background-color: var(--secondary-background);
-        width: 30px;
+        width: 50px;
         border: none;
-    }
-
-    .sidebar button i {
-        font-size: 25px;
-    }
-
-    .sidebar:nth-child(1) p {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        font-size: 20px;
-        margin: 4px 0.5rem 4px 1rem;
+        cursor: pointer;
+        padding: 0.5rem 1rem;
+        transition: all 0.5s ease-in-out;
     }
 
     .sidebar {
@@ -1440,6 +1695,18 @@ footer {
         overflow-x: hidden;
         transition: all 0.5s ease-in-out;
         box-shadow: 0 -5px 3px -3px black, 0 5px 3px -3px black;
+    }
+
+    .sidebar button i {
+        font-size: 25px;
+    }
+
+    .sidebar:nth-child(1) p {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 20px;
+        margin: 4px 0.5rem 4px 1rem;
     }
 
     .sidebar i {
@@ -1529,8 +1796,10 @@ footer {
     }
 
     .primary-link {
-        width: 30%;
-        padding: 8px 18px;
+        width: 190px;
+        padding: 8px 10px;
+        font-size: 14px;
+        text-transform: capitalize;
     }
 
     .showcase {
@@ -1546,11 +1815,8 @@ footer {
         flex-direction: column;
         justify-content: space-between;
         height: fit-content;
-        margin-right: auto;
-        margin-left: auto;
         margin-top: 4px;
         width: 100%;
-
     }
 
     .showcase #showcase-food1, .showcase #showcase-food2 {
@@ -1569,10 +1835,6 @@ footer {
         height: 300px
     }
 
-    .space {
-        width: 0;
-    }
-
     .showcase .texts {
         display: flex;
         flex-direction: column;
@@ -1582,8 +1844,8 @@ footer {
     }
 
     .showcase .texts h1 {
-        font-size: 35px;
-        width: 65%;
+        font-size: 40px;
+        width: 60%;
         padding: 4px 0;
     }
     
@@ -1598,6 +1860,10 @@ footer {
     .best-recipes .recipes-bar ul li a {
         font-size: 10px;
         margin: 0 2px;
+    }
+
+    .best-recipes .recipes-bar ul li:nth-child(7), .best-recipes .recipes-bar ul li:nth-child(8) {
+        display: none;
     }
 
     .best-recipes .recipes-bar #all {
@@ -1623,7 +1889,17 @@ footer {
     }
     
     .best-recipes .gallery .row .highlight .desc h3 {
-        font-size: 20px;
+        font-size: 18px;
+    }
+
+    .about-us .row1 .description {
+        width: 45%;
+        margin-right: auto;
+    }
+
+    .about-us .row1 .image  {
+        width: 45%;
+        text-align: left;
     }
 
     .about-us #chef, .about-us .row1 .image #ideal {
@@ -1642,31 +1918,28 @@ footer {
         font-size: 12px;
     }
 
-    .about-us .secondary-link {
+    .secondary-link {
         padding: 8px;
         width: 120px;
         font-size: 14px;
     }
 
-    .about-us .row2 .others {
-        margin-top: 2rem;
+    .about-us #row1-more {
+        display: none;
     }
-    
-    .about-us .row2 .others .container {
-        width: 32%;
+
+    .about-us .row2 .others {
+        margin-top: 40px;
+    }
+
+    .about-us .row2 .others .container img {
+        max-height: 200px;
     }
 
     .about-us .row2 .others .description {
-        padding: 0.5rem;
-    }
-    
-    .about-us .row2 .others .description h3 {
-        font-size: 20px;
-        color: #eee;
-    }
-
-    .about-us .row2 .others .description p {
-        font-size: 13px;
+        min-height: 280px;
+        max-height: 350px;
+        overflow: auto;
     }
 
     .top-chefs h2{
@@ -1695,12 +1968,14 @@ footer {
     }
 
     .share form label {
-        font-size: 16px;
+        font-size: 14px;
     }
     
     .share input[type=text], .share input[type=textarea] {
         font-size: 14px;
         margin-bottom: 8px;
+        height: 40px;
+        font-size: 12px;
     }
       
     .share input[type=text]::placeholder, .share input[type=textarea]::placeholder {
@@ -1720,6 +1995,10 @@ footer {
 
     .footer p {
         font-size: 12px;
+    }
+
+    .footer .footer-container h3 {
+        font-size: 15px;
     }
     
     .footer .footer-container {
@@ -1809,3 +2088,334 @@ footer {
         text-decoration: underline;
     }
 }
+
+@media only screen and (max-width: 730px) {
+    .about-us .row2 .others .description {
+        min-height: 320px;
+        max-height: 350px;
+        overflow: auto;
+    }
+}
+
+@media only screen and (max-width: 680px) {
+    .logo {
+        font-size: 1rem;
+        width: 120px;
+    }
+
+    .showcase .texts h1 {
+        font-size: 36px;
+        width: 65%;
+        padding: 4px 0;
+    }
+
+    .about-us .row2 .others .description {
+        min-height: 400px;
+        max-height: 420px;
+        overflow: auto;
+    }
+
+    .top-chefs p {
+        font-size: 10px;
+    }
+}
+
+@media only screen and (max-width: 525px) {
+    .logo {
+        font-size: 14px;
+        width: 120px;
+    }
+
+    .nav .forms input[type=search] {
+        margin-left: 4px;
+    }
+
+    .showcase #showcase-tablet {
+        display: flex;
+        width: 100%;
+        max-height: 300px;
+        margin-bottom: 1rem;
+    }
+
+    .showcase #showcase-tablet img {
+        width: 100%;
+        height: 250px
+    }
+
+    .showcase .texts h1 {
+        font-size: 30px;
+        width: 70%;
+        padding: 4px 0;
+    }
+
+    .showcase .texts p {
+        font-size: 12px;
+    }
+
+    .best-recipes h2, .about-us .description h2, .top-chefs h2, .share .share-recipe h2 {
+        font-size: 24px;
+    }
+
+    .best-recipes .recipes-bar ul li a {
+        font-size: 12px;
+    }
+
+    .best-recipes .gallery .row .highlight .desc h3 {
+        font-size: 14px;
+    }
+    
+    .about-us .row1 {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 0rem;
+    }
+
+    .about-us .row1 .image {
+        width: 100%;
+    }
+
+    .about-us .row2 .others {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 0;
+    }
+
+    .about-us .row1 .image #ingredients {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        max-height: 350px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .about-us .description {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .about-us .description p {
+        text-align: center;
+    }
+    
+    .about-us .row2 .others .container {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1rem;
+    }
+    
+    .about-us .row2 .others .container img {
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+        border-radius: 0;
+    }
+    
+    .about-us .row2 .others .container p {
+        font-size: 12px;
+    }
+    
+    .about-us .row2 .others .description {
+        padding: 0.5rem;
+        width: 100%;
+        border: 1px solid #888;
+        min-height: fit-content;
+        max-height: 250px;
+    }
+    
+    .about-us .row2 .others .description h3 {
+        font-size: 1.4rem;
+    }
+
+    .share .share-recipe h2 {
+        font-size: 1.2rem;
+    }
+
+    .share .share-recipe p {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    :root {
+        --nav-bar-height: 7rem;
+    }
+
+    .width {
+        width: 100vw;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    section {
+        margin: 2px 0;
+    }
+    
+    .nav {
+        display: none;
+    }
+    
+    .mobile-nav {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        max-height: var(--nav-bar-height);
+    }
+
+    .mobile-nav #row1 {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0;
+        border-bottom: 1px solid rgba(100, 100, 100, 0.332);
+        max-height: fit-content;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+        width: 145px;
+        padding: 4px 0;
+    }
+
+    .mobile-nav #row1 .logo svg {
+        width: 2.4rem;
+        height: 2.2rem;
+    }
+
+    .mobile-nav .mobile-search {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        padding: 0;
+        width: 100%;
+        height: fit-content;
+    }
+
+    .mobile-search .forms {
+        padding-bottom: 4px;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .mobile-search .forms input[type=search] {
+        background-color: var(--primary-background);
+        color: #999;
+        background-image: url('/Images/tabler--search.svg');
+        background-position: 8px;
+        background-repeat: no-repeat;
+        background-size: 0.8rem;
+        box-sizing: border-box;
+        border: 1px solid #222;
+        border-radius: 8px;
+        outline: 0;
+        font-size: 12px;
+        font-weight: 400;
+        padding: 0.5rem 1rem 0.5rem 2rem;
+        width: 100%;
+        height: 30px;
+        transition: width 0.5s ease-in-out;
+        caret-color: var(--primary-link-color);
+    }
+      
+    .mobile-search .forms input[type=search]::placeholder {
+        font-size: 12px;
+        padding-left: 8px;
+    }
+      
+    .mobile-search .forms input[type=search]:focus {
+        width: 100%;
+        border: 1px solid #555;
+        background-color: var(--secondary-background);
+    }
+
+    .showcase {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        max-height: fit-content;
+        margin-top: var(--nav-bar-height);
+        overflow: hidden;
+    }
+    
+    .showcase .showcase-foods {
+        background-image: radial-gradient(circle, rgb(109, 9, 9, 0.5) 40%, var(--secondary-background) 30%, var( --primary-background) 30%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        width: 100%;
+        margin-top: 0px;
+        height: 100%;
+    }
+
+    .showcase #showcase-tablet {
+        display: flex;
+        width: 100%;
+        max-height: 250px;
+        margin-bottom: 4px;
+        margin-top: 0;
+    }
+
+    .showcase #showcase-tablet img {
+        height: 220px;
+        margin-top: 0;
+    }
+    
+    .showcase .texts {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 8px;
+    }
+    
+
+    .showcase .texts h1 {
+        font-size: 1.7rem;
+        width: 70%;
+        padding: 4px 0;
+        text-align: center;
+    }
+
+    .showcase .texts p {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .best-recipes h2, .about-us .description h2, .top-chefs h2, .share .share-recipe h2 {
+        font-size: 20px;
+    }
+
+    .best-recipes .recipes-bar {
+        width: 0%;
+        height: 0;
+    }
+
+    .best-recipes .recipes-bar ul {
+        display: none;
+    }
+
+    .best-recipes .gallery .row .highlight .desc h3 {
+        font-size: 14px;
+    }
+
+    .share .share-recipe h2 {
+        font-size: 1.2rem;
+    }
+
+    .share .share-recipe p {
+        font-size: 12px;
+    }
+}
+

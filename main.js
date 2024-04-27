@@ -1,34 +1,28 @@
-// The button in the footer
-function tada() {
-    alert("TADA!!!")
+    // The button in the footer
+function author() {
+    alert("Author is:  BAMTEFA, Olorunshogo Moses ☺☺☺☺.")
 }
 
-// SIDEMENU
-function openSideMenu() {
-    document.getElementById('side-menu').style.width = '200px';
+    // SIDEMENU
+    // Open Button
+{
+    const openButton = document.getElementById("open-button");
+    openButton.addEventListener("click", function() {
+        document.getElementById('side-menu').style.width = '200px';
+    });
 }
 
-function closeSideMenu() {
-    document.getElementById('side-menu').style.width = '0';
-    document.getElementById('side-menu').style.width = '0';
+    // Close Button
+{
+    const closeButton = document.getElementById("close-button");
+
+    // Close X icon
+    closeButton.addEventListener("click", function() {
+        document.getElementById('side-menu').style.width = '0';
+    });
+
+    // // Showcase Section
+    close1.addEventListener("click", function() {
+        document.getElementById('side-menu').style.width = '0';
+    });
 }
-
-    // Read More Buttons
-/*
-function readMore() {
-    var dots = document.getElementById("dots");
-    var moreText = document.getElementById("more");
-    var btnText = document.getElementById("readMore");
-
-    if (moreText.style.display === "none") {
-        dots.style.display = "inline";
-        btnText.innerHTML = "Read more";
-        moreText.style.display = "none";
-    } else {
-        dots.style.display = "none";
-        btnText.innerHTML = "Read less";
-        moreText.style.display = "inline";
-    }
-}
-
-*/
