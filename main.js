@@ -15,6 +15,7 @@ function author() {
     // Close Button
 {
     const closeButton = document.getElementById("close-button");
+    const close1 = document.getElementById("home");
 
     // Close X icon
     closeButton.addEventListener("click", function() {

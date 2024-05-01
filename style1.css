@@ -620,7 +620,6 @@ nav {
     width: 100%;
     height: auto;
     max-height: 300px;
-    border-radius: 20px 20px 0 0;
 }
 
 .about-us .row2 .others .container p {
@@ -1695,6 +1694,7 @@ footer {
         overflow-x: hidden;
         transition: all 0.5s ease-in-out;
         box-shadow: 0 -5px 3px -3px black, 0 5px 3px -3px black;
+        z-index: 50;
     }
 
     .sidebar button i {
@@ -2175,14 +2175,6 @@ footer {
         width: 100%;
     }
 
-    .about-us .row2 .others {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 100%;
-        margin-top: 0;
-    }
-
     .about-us .row1 .image #ingredients {
         width: 100%;
         height: auto;
@@ -2193,14 +2185,20 @@ footer {
     }
 
     .about-us .description {
+        display: block;
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
     }
 
     .about-us .description p {
-        text-align: center;
+        width: 100%;
+    }
+
+    .about-us .row2 .others {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 0;
     }
     
     .about-us .row2 .others .container {
