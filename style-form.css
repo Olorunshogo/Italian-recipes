@@ -1,19 +1,5 @@
 
 
-:root {
-    --nav-bar-height: 3.5rem;
-    --primary-background: #010101;
-    --secondary-background: rgba(9, 9, 9, 1.0);
-    --text-color: #e7e7e7;
-
-    --primary-link-color: rgba(246, 0, 0, 0.85);
-    --primary-link-background: #000;
-
-    --secondary-link-color: rgba(240, 240, 240, 1.0);
-    --secondary-link-background: #000;   
-
-    --footer-text-color: rgba(200, 200, 200, 0.8);
-}
 
 /* The login message that will be displayed on the signup page when it's mobile */
 .mobile-overlay {
@@ -28,8 +14,8 @@
     box-shadow:  0 14px 28px rgba(0, 0, 0, 0.8), 0 10px 10px rgba(0, 0, 0, 0.9);
     position: relative;
     overflow: hidden;
-    width: 850px;
-    max-width: 100%;
+    width: 900px;
+    max-width: 2000px;
     min-height: fit-content;
     background-color: var(--secondary-background);
     margin-top: 10vh;
@@ -37,8 +23,8 @@
     margin-right: auto;
 }
 
-/* The Login message on the left */
-.left-message {
+/* The Login message on the left and The Sign up message on the right */
+.account-container .left-message, .account-container .right-message {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -55,49 +41,17 @@
     color: var(--text-color);
     transform: translateX(0);
     transition: transform 0.5s  ease-in-out;
-}
-
-/* The Login message on the right */
-.right-message {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 50%;
-    font-weight: bold;
-    padding: 4rem 2rem;
-    background: linear-gradient(to right, #ff416c, var(--primary-link-color));
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 0 0;
-    position: relative;
-    color: var(--text-color);
-    transform: translateX(0);
-    transition: transform 0.5s  ease-in-out;
-}
-
-.account-container .left-message .login {
-    display: block;
-    border-radius: 12px;
-    padding: 1rem 3rem;
-    text-align: center;
-    border: none;
-    background-color: var(--secondary-background);
-    color: var(--text-color);
-    font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: transform 80ms ease-in-out;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 /* The form containers */
 .account-container .form-container {
     height: 100%;
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .account-container .form-container form {
@@ -105,8 +59,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
     padding: 2rem 1rem;
+    text-align: center;
     width: 100%;
     transition: all 0.6s ease-in-out;
 }
@@ -198,9 +152,9 @@
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
-    transition: transform 80ms ease-in-out;
     margin-left: auto;
     margin-right: auto;
+    transition: transform 0.5s ease-in-out;
 }
 
 .account-container .btn.redButton{
@@ -211,27 +165,31 @@
     background-color: var(--secondary-background);
 }
 
-.account-container button:active {
+.account-container .btn:active {
     transform: scale(1.05);
 }
 
-.account-container button:hover {
-    background-color: #e71818e8;
-    border: none;
-    outline: none;
+.account-container .btn.redButton:hover {
+    background-color: rgba(246, 0, 0, 0.95);
+    transform: scale(1.05);
 }
 
-.account-container button:focus {
+.account-container .btn.blackButton:hover {
+    background-color: var(--primary-background);
+    transform: scale(1.05);
+}
+
+.account-container .btn:focus {
     outline: none;
 }
 
 /* Animations */
-.account-container .left-message {
+.account-container .left-message, .account-container .right-message {
     transform: translateY(0%);
-    animation: left 1.5s;
+    animation: left 1s;
 }
 
-.account-container .sign-up-container {
+.account-container .sign-up-container, .account-container .login-container {
     transform: translateY(0%);
     opacity: 1;
     z-index: 5;
@@ -271,7 +229,7 @@
 @media only screen and (max-width: 1440px) {
     .account-container {
         width: 750px;
-        margin-top: 5vh;
+        margin-top: 7vh;
     }
     
     .account-container h1 {
@@ -284,6 +242,10 @@
     
     .account-container a {
         margin: 0.5rem 0;
+    }
+
+    .account-container .left-message, .account-container .right-message {
+        padding: 2rem 1rem;
     }
 
     .account-container input[type=text], 
@@ -300,25 +262,22 @@
         font-size: 14px;
     }
 
-    .account-container button, .account-container .left-message .login {
+    .account-container .btn {
         padding: 1rem 2rem;
         font-size: 14px;
     }
 }
 
 @media only screen and (max-width: 1024px) {
-    /* Page container */
     .account-container {
         width: 600px;
-        margin-top: 1rem;
+        margin-top: 10vh;
     }
     
-    /* Header */
     .account-container h1 {
         font-size: 2rem;
     }
     
-    /* Paragraphs */
     .account-container p {
         font-size: 12px;
     }
@@ -327,7 +286,6 @@
         font-size: 12px;
     }
     
-    /* The links */
     .account-container a {
         margin: 0.4rem 0;
     }
@@ -346,7 +304,7 @@
         font-size: 12px;
     }
     
-    .account-container button, .account-container .left-message .login {
+    .account-container .btn {
         padding: 14px 28px;
         font-size: 13px;
     }
@@ -356,7 +314,7 @@
 @media only screen and (max-width: 768px) {
     .account-container {
         width: 550px;
-        margin-top: 10%;
+        margin-top: 10vh
     }
 
     .account-container.width {
@@ -369,10 +327,15 @@
 
     .account-container a {
         margin: 0.2rem 0;
+        font-size: 10px;
     }
 
     .account-container p {
         font-size: 12px;
+    }
+
+    .account-container .left-message, .account-container .right-message {
+        padding: 1rem;
     }
 
     .account-container .form-container form {
@@ -387,7 +350,7 @@
         width: 95%;
     }
     
-    .account-container button, .account-container .left-message .login {
+    .account-container .btn {
         padding: 12px 28px;
         font-size: 12px;
     }
@@ -396,7 +359,7 @@
 @media only screen and (max-width: 550px) {
     .account-container {
         width: 500px;
-        margin-top: 1rem;
+        margin-top: 5vh;
     }
     
     .account-container h1 {
@@ -407,7 +370,7 @@
         padding: 0.5rem;
     }
 
-    .account-container button, .account-container .left-message .login {
+    .account-container .btn {
         padding: 12px 20px;
         font-size: 12px;
     }
@@ -416,12 +379,12 @@
 @media only screen and (max-width: 450px) {
     .account-container {
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
         width: 80%;
         max-width: 100%;
         min-height: fit-content;
         background-color: var(--primary-background);
-        margin-top: 0;
+        margin-top: 5vh;
     }
 
     .account-container.width {
@@ -429,7 +392,7 @@
     }
 
     /* The Login message on the left */
-    .left-message {
+    .account-container .left-message, .account-container .right-message {
         display: none;
     }
 
@@ -452,6 +415,10 @@
 
     .account-container a {
         margin: 0.2rem 0;
+    }
+
+    .account-container .left-message, .account-container .right-message {
+        padding: 0.5rem;
     }
 
     .account-container span {
@@ -485,7 +452,7 @@
     }
 
     /* Buttons */
-    .account-container button {
+    .account-container .btn {
         padding: 12px 2rem;
         font-size: 12px;
     }
@@ -501,10 +468,10 @@
         font-size: 12px;
     }
 
-    .account-container .mobile-overlay a {
+    .account-container .mobile-overlay p #signup-link {
         text-decoration: underline;
         display: inline;
         font-size: 10px;
-        margin-left: 3px;
+        margin-left: 1px;
     }
 }
