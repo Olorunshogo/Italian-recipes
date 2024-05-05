@@ -29,11 +29,11 @@
             <div class="left-message">
                 <h1>Welcome Back!</h1>
                 <p>To keep connected with us, please enter your personal information.</p>
-                <a href="log_in.html" class="btn blackButton" id="signIn" target="_blank">Log In</a>                    
+                <a href="log_in.html" class="btn blackButton" id="signinForm" target="_blank">Log In</a>                    
             </div>
 
             <div class="form-container sign-up-container" id="sign-up-container">
-                <form action="action_page.php" method="post" autocomplete="on" formid="">
+                <form action="action_page.php" method="post" autocomplete="on" id="sign-up-form">
                     <h1>Create account</h1>
                     <div class="social-container">
                         <a href="#"><i class="fa-brands fa-facebook"></i></a>
@@ -44,18 +44,18 @@
                     </div>
                     <span>or use email for registration.</span>
                     <input type="text" name="fullName" placeholder="John Doe" required>
-                    <input type="email" name="e-mail" placeholder="Email" value="johnd@mushina.com">
-                    <input type="password" name="password" placeholder="Password">
+                    <input type="email" name="e-mail" placeholder="Email" value="johnd@mushina.com" required>
+                    <input type="password" name="password" placeholder="Password" required>
                     <p id="p-warning">Password should contain at least 8 characters, a symbol and a number.</p>
-                    <button type="submit" class="btn redButton" formaction="action_page.php" formtarget="_blank">Sign Up</button>
+                    <button type="submit" class="btn redButton" formtarget="_blank">Sign Up</button>
                 </form>
             </div>
 
             <div class="mobile-overlay">
-                <p>
+                <div>
                     Already have an account, please login 
-                    <a href="log_in.html" target="_blank"> here</a>
-                </p>
+                    <a href="log_in.html" id="login-link" target="_blank"> here</a>
+                </div>
             </div>
         </div>
     </body>

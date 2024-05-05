@@ -27,7 +27,7 @@
     <body>
         <div class="account-container width" title="Account">
             <div class="form-container login-container" id="login-container">
-                <form action="action_page.php" method="post" autocomplete="on">
+                <form action="action_page.php" method="post" id="loginForm" autocomplete="on">
                     <h1>Log in</h1>
                     <div class="social-container">
                         <a href="#"><i class="fa-brands fa-facebook"></i></a>
@@ -37,10 +37,10 @@
                         <a href="#"><i class="fa-brands fa-linkedin"></i></a>
                     </div>
                     <span>or use your account</span>
-                    <input type="email" name="e-mail" placeholder="e-mail">
-                    <input type="password" name="password" placeholder="password">
+                    <input type="email" id="logEmail" name="e-mail" placeholder="e-mail" required>
+                    <input type="password" id="logPassword" name="password" placeholder="password" required>
                     <a href="#" target="_blank">Forgot your password</a>
-                    <button type="submit" class="btn redButton" formaction="action_page.php" formtarget="_blank">Log In</button>
+                    <button type="submit" id="loginBtn" class="btn redButton" formaction="action_page.php" formtarget="_blank">Log In</button>
                 </form>
             </div>
             <div class="right-message">
@@ -49,10 +49,10 @@
                 <a href="sign_up.html" class="btn blackButton" id="signUp">Sign Up</a>
             </div>
             <div class="mobile-overlay">
-                <p>
+                <div>
                     To keep connected with us, please enter your personal information 
                     <a id="signup-link" href="log_in.html" target="_blank"> here</a>
-                </p>
+                </div>
             </div>
         </div>
     </body>

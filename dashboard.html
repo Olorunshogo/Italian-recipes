@@ -11,6 +11,7 @@
         <!-- Link to font-awesome -->
         <script src="https://kit.fontawesome.com/5f208f9308.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
         <!-- Boxicon -->
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
@@ -19,36 +20,314 @@
 
         <!-- Favicon Link -->
         <link rel="shortcut icon" href="/Images/favicon.ico" type="image/x-icon">
-        
-
-
-        <!-- Poppins Google Fonts -->
-        <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,400..700;1,400..700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:slnt,wght@-10..0,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet"> -->
     </head>
 
     <body>
-        <div class="dashboard">
-            <div>
-                <nav class="sidebar" role="navigation">
+        <div class="dash-width">
+            <div class="dashboard">
+                <nav class="sidebar" role="navigation" title="navigations">
                     <header>
-                        <div class="image-text">
-                            <span class="image">
-                                <img src="/Images/White Pizza.jpg" alt="Pizza image as logo">
-                            </span>
-
-                            <div class="text header-text">
-                                <span class="dash-name">
-                                    Eat-Italian
-                                </span>
-                                <span class="function">
-                                    Recipes
-                                </span>
+                        <div class="logo">
+                            <p>
+                                eat-<span id="italian">Italian</span><span id="com">.com</span>
+                            </p>
+                        </div>
+    
+                        <i class="fa-solid fa-chevron-right toggle"></i>
+                    </header>
+    
+                    <div class="menu-bar">
+                        <div class="menu">
+                            <ul class="menu-items">
+                                <ul class="nav-links">
+                                    <li title="Overview">
+                                        <a href="#" id="overview" target="_self">
+                                            <i class="fa-solid fa-bars icons"></i>
+                                            <span class="linkName">Overview</span>
+                                        </a>
+                                    </li>
+                                    <li title="Recipes">
+                                        <a href="#">
+                                            <!-- <i class="fa-solid fa-bowl-food icons"></i> -->
+                                            <i class='bx bx-food-menu icons'></i>
+                                            <span class="linkName">Recipes</span>
+                                        </a>
+                                    </li>
+                                    <li title="Favorites">
+                                        <a href="#" target="_self">
+                                            <!-- <i class="fa-solid fa-heart icons"></i> -->
+                                            <i class='bx bx-heart icons'></i>
+                                            <span class="linkName">Favorites</span>
+                                        </a>
+                                    </li>
+                                    <li title="Inbox">
+                                        <a href="#" target="_self">
+                                            <!-- <i class="fa-solid fa-envelope icons"></i> -->
+                                            <i class='bx bx-envelope icons'></i>
+                                            <span class="linkName">Inbox</span>
+                                        </a>
+                                    </li>
+                                    <li title="Community">
+                                        <a href="#" target="_self">
+                                            <i class='bx bx-envelope icons'></i>
+                                            <span class="linkName">Community</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="logout" title="Logout">
+                                    <li>
+                                        <a href="#" target="_self">
+                                            <i class='bx bx-log-out icons'></i>
+                                            <span class="linkName">Log Out</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </ul>
+                        </div>
+                    </div>
+    
+                    <div class="upload">
+                        <div class="image">
+                            <img src="/Images/Nav Upload.png" alt="">
+                        </div>
+                        <div class="uploadMod">
+                            <p>Share your own Recipe with the community</p>
+                            <button type="submit">Upload Now</button>
+                        </div>
+                    </div>
+                </nav>
+                <section>
+                    <div class="dash-body">
+                        <!-- The Search and Filter part at the top -->
+                        <div class="search">
+                            <form action="action_page.php" method="post" class="search-box" id="sidebar-search">
+                                <i class="fas fa-search search-icon"></i>
+                                <input type="search" name="search" id="dash-search" placeholder="Search by food name">
+                            </form>
+                            <!-- <i class="fa-solid fa-filter"></i> -->
+                            <div class="filter">
+                                <i class='bx bx-menu-alt-right'></i>
+                                Filter
                             </div>
                         </div>
-                    </header>
-                </nav>
+    
+                        <!-- The add recipe part -->
+                        <div class="add-recipe">
+                            <div class="words">
+                                <h1>Add your own recipe</h1>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod commodi alias sequi porro vitae, nulla officia ex aspernatur assumenda? Dolorem aliquid, illo earum quas aut architecto corporis hic vero veniam.</p>
+                            </div>
+                            <div class="image">
+                                <img src="/Images/Tasting_cake3_nobg.png" alt="Woman eating Pizza">
+                            </div>
+                        </div>
+    
+                        <!-- Based on what you like header -->
+                        <div class="dash-recipe-head">
+                            <h2>Based on the type of food you like</h2>
+                            <a href="#" target="_self">View More <i class="fas fa-chevron-right"></i></a>
+                        </div>
+    
+                        <!-- Each recipe section -->
+                        <div class="dash-recipes">                        
+                            <div class="recipe-example">
+                                <div class="each-recipe">
+                                    <div class="head">
+                                        <div class="recipe-img">
+                                            <img src="/Images/Dash Chicken_Parmesan.png" alt="Chicken Parmesan">
+                                        </div>
+                                        <div class="recipe-desc">
+                                            <h3>Chicken Parmesan</h3>
+                                            <p class="calories">249Cal</p>
+                                        </div>
+                                    </div>
+                                    <div class="ingredients">
+                                        <h4>Ingredients</h4>
+                                        <!-- Remove all thr background of the image of each ingredients -->
+                                        <div class="row">
+                                            <div class="each-ingredient" title="Chicken">
+                                                <img src="/Images/Dash Chicken.png" alt="Chicken">
+                                                <span class="ingredient">Chicken</span>
+                                            </div>
+                                            <div class="each-ingredient" title="Parmesan">
+                                                <img src="/Images/Dash Parmesan.png" alt="Parmesan">
+                                                <span class="ingredient">Parmesan</span>
+                                            </div>
+                                            <div class="each-ingredient" title="Vegetable Oil">
+                                                <img src="/Images/Dash Recipe Oil.png" alt="Vegetable Oil">
+                                                <span class="ingredient">Vegetable Oil</span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="each-ingredient" title="Onions">
+                                                <img src="/Images/Dash Onion.png" alt="Onions">
+                                                <span class="ingredient">Onions</span>
+                                            </div>
+                                            <div class="each-ingredient" title="Basil">
+                                                <img src="/Images/Dash Basil.png" alt="Basil">
+                                                <span class="ingredient">Basil</span>
+                                            </div>
+                                            <div class="each-ingredient each-more" title="See more">
+                                                <p>+3 More</p>
+                                            </div>
+                                        </div>
+    
+                                        <!-- The play tutorial part -->
+                                        <div class="recipe-footer">
+                                            <div class="heart-icon" id="heart-icon">
+                                                <i class="fa-regular fa-heart" id="regular-heart"></i>
+                                                <i class="fa-solid fa-heart" id="solid-heart"></i>
+                                            </div>
+    
+                                            <div class="play-tutorial">                                            
+                                                <i class="fa-solid fa-play"></i>
+                                                <span id="play">Watch Tutorial</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="each-recipe">
+                                    <div class="head">
+                                        <div class="recipe-img">
+                                            <img src="/Images/Dash Chicken_Parmesan.png" alt="Chicken Parmesan">
+                                        </div>
+                                        <div class="recipe-desc">
+                                            <h3>Chicken Parmesan</h3>
+                                            <p class="calories">249Cal</p>
+                                        </div>
+                                    </div>
+                                    <div class="ingredients">
+                                        <h4>Ingredients</h4>
+                                        <!-- Remove all thr background of the image of each ingredients -->
+                                        <div class="row">
+                                            <div class="each-ingredient" title="Chicken">
+                                                <img src="/Images/Dash Chicken.png" alt="Chicken">
+                                                <span class="ingredient">Chicken</span>
+                                            </div>
+                                            <div class="each-ingredient" title="Parmesan">
+                                                <img src="/Images/Dash Parmesan.png" alt="Parmesan">
+                                                <span class="ingredient">Parmesan</span>
+                                            </div>
+                                            <div class="each-ingredient" title="Vegetable Oil">
+                                                <img src="/Images/Dash Recipe Oil.png" alt="Vegetable Oil">
+                                                <span class="ingredient">Vegetable Oil</span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="each-ingredient" title="Onions">
+                                                <img src="/Images/Dash Onion.png" alt="Onions">
+                                                <span class="ingredient">Onions</span>
+                                            </div>
+                                            <div class="each-ingredient" title="Basil">
+                                                <img src="/Images/Dash Basil.png" alt="Basil">
+                                                <span class="ingredient">Basil</span>
+                                            </div>
+                                            <div class="each-ingredient each-more" title="See more">
+                                                <p>+3 More</p>
+                                            </div>
+                                        </div>
+    
+                                        <!-- The play tutorial part -->
+                                        <div class="recipe-footer">
+                                            <div class="heart-icon" id="heart-icon">
+                                                <i class="fa-regular fa-heart" id="regular-heart"></i>
+                                                <i class="fa-solid fa-heart" id="solid-heart"></i>
+                                            </div>
+    
+                                            <div class="play-tutorial">                                            
+                                                <i class="fa-solid fa-play"></i>
+                                                <span id="play">Watch Tutorial</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="aside">
+                    <div class="aside-right">
+                        <span class="bell">
+                            <i class="fa-soli fa-bell"></i>
+                                <span id="red-dot">.</span>
+                            </i>
+                        </span>
+                        <span class="user">
+                            <i class='bx bx-user'></i>
+                        </span>
+                    </div>
+                    <div class="report" title="Report">
+                        <h2>Report</h2><span id="onthisweek"> on this week</span>
+                        <p id="currentDate"></p>
+                        <div class="graph-container">
+                            <div class="graph">
+                            </div>
+                            <div class="graph-desc">
+                                <div class="row">
+                                    <div id="calories">
+                                        <i class="fas fa-search"></i>
+                                        <span>Calories</span>
+                                    </div>
+                                    <div id="calories">
+                                        <i class="fas fa-search"></i>
+                                        <span>Carbohydrate</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div id="calories">
+                                        <i class="fas fa-search"></i>
+                                        <span>Fats</span>
+                                    </div>
+                                    <div id="calories">
+                                        <i class="fas fa-search"></i>
+                                        <span>Protein</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="more-recipe">
+                        <div class="top">
+                            <h2>More Recipe</h2>
+                            <a href="#" class="view-more">
+                                View More
+                                <i class="fa chevron-right"></i>
+                            </a>
+                        </div>
+                        <div class="each-more-container">
+                            <div class="aside-recipe">
+                                <div class="head">
+                                    <div class="recipe-img">
+                                        <img src="/Images/Dash Chicken_Parmesan.png" alt="Chicken Parmesan">
+                                    </div>
+                                    <div class="recipe-desc">
+                                        <h3>Autumn Soup</h3>
+                                        <p class="calories">With a very delicious almond taste</p>
+                                    </div>
+                                </div>
+                                <div class="play-tutorial">                                            
+                                    <i class="fa-solid fa-play"></i>
+                                    <span id="play">Watch Tutorial</span>
+                                </div>
+                            </div>
+                            <div class="aside-recipe">
+                                <div class="head">
+                                    <div class="recipe-img">
+                                        <img src="/Images/Dash Chicken_Parmesan.png" alt="Chicken Parmesan">
+                                    </div>
+                                    <div class="recipe-desc">
+                                        <h3>Autumn Soup</h3>
+                                        <p class="calories">With a very delicious almond taste</p>
+                                    </div>
+                                </div>
+                                <div class="play-tutorial">                                            
+                                    <i class="fa-solid fa-play"></i>
+                                    <span id="play">Watch Tutorial</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                    
             </div>
         </div>
     </body>

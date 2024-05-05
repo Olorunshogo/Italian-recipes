@@ -411,6 +411,7 @@
 
     .account-container p {
         font-size: 12px;
+        margin: 0;
     }
 
     .account-container a {
@@ -461,6 +462,8 @@
     .account-container .mobile-overlay {
         display: flex;
         flex-direction: row;
+        justify-content: center;
+        align-items: center;
         padding: 0 8px;
         margin-left: auto;
         margin-right: auto;
@@ -468,10 +471,9 @@
         font-size: 12px;
     }
 
-    .account-container .mobile-overlay p #signup-link {
+    .account-container .mobile-overlay #signup-link, .account-container .mobile-overlay #login-link {
         text-decoration: underline;
         display: inline;
         font-size: 10px;
-        margin-left: 1px;
     }
 }
