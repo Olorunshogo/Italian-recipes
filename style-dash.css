@@ -22,8 +22,7 @@
     --dash-title-icon-color: #fff;
 
     --dash-logo-colour: rgba(246, 0, 0, 0.9);
-    /* --dash-ingredient-red: rgb(246, 230, 230); */
-    --dash-ingredient-red: #e7d1fc;
+    --dash-ingredient-red: rgb(246, 230, 230);
 
     /* Transition */
     --trans-05: all 0.5s ease-in-out;
@@ -36,8 +35,7 @@ body {
     font-weight: 400;
     line-height: 1.5;
     width: 100vw;
-    min-height: 100vh;
-    background-color: var(--dash-ingredient-red)
+    height: 100vh;
 }
 
 a {
@@ -82,7 +80,7 @@ h4 {
     background-color: var(--dash-sidebar-bg);
     display: flex;
     flex-direction: column;
-    box-shadow: 2px 2px 8px #bbb;
+    box-shadow: 2px 2px 8px #fff, 2px 2px 8px #fff;
 }
 
 .dashboard .sidebar header {
@@ -91,7 +89,7 @@ h4 {
         
     /* ===== LOGO ===== */
 .dashboard .sidebar .logo  {
-    height: 50px;
+    height: 60px;
     width: 100%;
 }
 
@@ -134,6 +132,11 @@ h4 {
 }
 
 /* MENU */
+.dashboard .sidebar .menu-bar {
+    width: 100%;
+    height: 350px;
+}
+
 .dashboard .sidebar .menu-bar li {
     list-style-type: none;
     height: 50px;
@@ -248,7 +251,7 @@ h4 {
 }
 
 .dashboard .dash-body > div {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
     /* SEARCH */
@@ -356,14 +359,16 @@ h4 {
 }
 
 /* This contain the Based on the type of food you like header and the view more link to the right. */
-.dashboard .dash-body .dash-recipe-head {
+.dashboard .dash-body .dash-recipe-head,
+.dashboard .aside .more-recipe .top {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: baseline;
 }
 
-.dashboard .dash-body .dash-recipe-head a {
+.dashboard .dash-body .dash-recipe-head a,
+.dashboard .aside .more-recipe .top a {
     text-align: center;
     border: none;
     margin: 0.5rem 0;
@@ -376,11 +381,13 @@ h4 {
     cursor: pointer;
 }
 
-.dashboard .dash-body .dash-recipe-head a:hover {
+.dashboard .dash-body .dash-recipe-head a:hover,
+.dashboard .aside .more-recipe .top a:hover {
     transform: scale(0.95);
 }
 
-.dashboard .dash-body .dash-recipe-head h2 {
+.dashboard .dash-body .dash-recipe-head h2,
+.dashboard .aside .more-recipe .top h2 {
     font-size: 26px;
     font-weight: 600;
 }
@@ -550,7 +557,7 @@ h4 {
     display: flex;
     flex-direction: column;
     position: relative;
-    width: 450px;
+    width: 300px;
     height: 100%;
     padding: 20px;
 }
@@ -588,43 +595,134 @@ h4 {
     padding: 10px;
 }
 
-
-
-
-/* The description of each ingredients */
-.dashboard .aside .more-recipe {
-    width: 100%;
-    height: 400px;
+/* REPORT Part */
+.dashboard .aside .report {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-}
+} 
 
-.dashboard .aside .more-recipe .top {
+.dashboard .aside .report-heading {
     display: flex;
-    flex-direction: row;
+    align-items: baseline;
 }
 
-.dashboard .aside .more-recipe .top h3 {
-    font-size: 22px;
-    font-weight: 600;
-    text-align: left;
-}
-
-.dashboard .dash-body .dash-recipes .calories {
-    font-size: 14px;
-    font-weight: 300;
+.dashboard .aside .report-heading #onthisweek,
+.dashboard .aside .report-heading #currentDate {
     color: var(--dash-nav-colour);
 }
 
-.dashboard .dash-body .dash-recipes .ingredients {
+.dashboard .aside .graph-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard .aside .graph {
+    display: flex;
+    justify-content: center;
+}
+
+.dashboard .aside .graph canvas {
+    width: 300px;
+    height: 400px;
+    width: 200px;
+}
+
+.dashboard .aside .graph-desc {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+
+
+
+
+
+
+
+/* The container for all the recipes */
+.dashboard .aside .each-more-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* The container for each recipes */
+.dashboard .aside .aside-recipe {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-left: auto;
+    width: 100%;
+    padding: 1rem;
+    position: relative;
 }
 
-.dashboard .dash-body .ingredients h4 {
-    font-size: 20px;
+.dashboard .aside .aside-recipe .recipe-img {
+    width: 110px;
+    height: 110px;
+    padding: 2px;
+    border-radius: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #bbb;
+    z-index: 2;
+}
+
+.dashboard .aside .aside-recipe .recipe-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* The description of each ingredients */
+.dashboard .aside .aside-recipe .recipe-desc {
+    width: 190px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: var(--dash-ingredient-red);
+    position: absolute;
+    top: 40%;
+    border-radius: 20px;
+    padding: 0 20px;
+    text-align: left;
+    padding-top: 50px;
+}
+
+.dashboard .aside .aside-recipe .recipe-desc h3 {
+    font-size: 18px;
     font-weight: 600;
-    margin: 8px 0;
+    color: var(--dash-text-colour);
+}
+
+.dashboard .aside .aside-recipe .recipe-desc p {
+    color: var(--dash-black-light-colour);
+}
+
+/* ASIDE Tutorial Part */
+.dashboard .aside .tutorial {
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+    align-items: center;
+    color: var(--dash-nav-colour);
+}
+
+.dashboard .aside .tutorial i.fa-solid.fa-play {
+    background-color: var(--dash-logo-colour);
+    color: var(--dash-sidebar-bg);  
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    padding: 12px;
+    border-radius: 50%;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
 }

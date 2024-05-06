@@ -11,15 +11,16 @@
         <!-- Link to font-awesome -->
         <script src="https://kit.fontawesome.com/5f208f9308.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
         <!-- Boxicon -->
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
         <!-- Link to the stylesheets -->
         <link rel="stylesheet" href="style-dash.css">
-
         <!-- Favicon Link -->
         <link rel="shortcut icon" href="/Images/favicon.ico" type="image/x-icon">
+
+        <!-- Link to the Content Delivery Network (CDN) -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     </head>
 
     <body>
@@ -42,7 +43,7 @@
                                 <ul class="nav-links">
                                     <li title="Overview">
                                         <a href="#" id="overview" target="_self">
-                                            <i class="fa-solid fa-bars icons"></i>
+                                            <i class="fa fa-th-large icons"></i>
                                             <span class="linkName">Overview</span>
                                         </a>
                                     </li>
@@ -97,6 +98,10 @@
                     </div>
                 </nav>
                 <section>
+                    <!-- 
+                        <i class="fa-solid fa-toggle-off"></i>
+                        <i class="fa-solid fa-toggle-on"></i>
+                     -->
                     <div class="dash-body">
                         <!-- The Search and Filter part at the top -->
                         <div class="search">
@@ -134,7 +139,7 @@
                                 <div class="each-recipe">
                                     <div class="head">
                                         <div class="recipe-img">
-                                            <img src="/Images/Dash Chicken_Parmesan.png" alt="Chicken Parmesan">
+                                            <img src="/Images/Blog 2.jpg" alt="Chicken Parmesan">
                                         </div>
                                         <div class="recipe-desc">
                                             <h3>Chicken Parmesan</h3>
@@ -175,8 +180,7 @@
                                         <!-- The play tutorial part -->
                                         <div class="recipe-footer">
                                             <div class="heart-icon" id="heart-icon">
-                                                <i class="fa-regular fa-heart" id="regular-heart"></i>
-                                                <i class="fa-solid fa-heart" id="solid-heart"></i>
+                                                <i onclick="myFunction(this)" class="fa-regular fa-heart"></i>
                                             </div>
     
                                             <div class="play-tutorial">                                            
@@ -189,7 +193,7 @@
                                 <div class="each-recipe">
                                     <div class="head">
                                         <div class="recipe-img">
-                                            <img src="/Images/Dash Chicken_Parmesan.png" alt="Chicken Parmesan">
+                                            <img src="/Images/Blog 1.jpg" alt="Chicken Parmesan">
                                         </div>
                                         <div class="recipe-desc">
                                             <h3>Chicken Parmesan</h3>
@@ -230,8 +234,7 @@
                                         <!-- The play tutorial part -->
                                         <div class="recipe-footer">
                                             <div class="heart-icon" id="heart-icon">
-                                                <i class="fa-regular fa-heart" id="regular-heart"></i>
-                                                <i class="fa-solid fa-heart" id="solid-heart"></i>
+                                                <i onclick="myFunction(this)" class="fa-regular fa-heart"></i>
                                             </div>
     
                                             <div class="play-tutorial">                                            
@@ -248,8 +251,10 @@
                 <div class="aside">
                     <div class="aside-right">
                         <span class="bell">
-                            <i class="fa-soli fa-bell"></i>
-                                <span id="red-dot">.</span>
+                            <i class="fa fa-bell" aria-hidden="true">
+                                <span id="red-dot">
+                                    <i class="fa-solid fa-circle"></i>
+                                </span>
                             </i>
                         </span>
                         <span class="user">
@@ -257,32 +262,14 @@
                         </span>
                     </div>
                     <div class="report" title="Report">
-                        <h2>Report</h2><span id="onthisweek"> on this week</span>
+                        <div class="report-heading">
+                            <h2>Report</h2>
+                            <span id="onthismonth"> on this month</span>
+                        </div>
                         <p id="currentDate"></p>
                         <div class="graph-container">
                             <div class="graph">
-                            </div>
-                            <div class="graph-desc">
-                                <div class="row">
-                                    <div id="calories">
-                                        <i class="fas fa-search"></i>
-                                        <span>Calories</span>
-                                    </div>
-                                    <div id="calories">
-                                        <i class="fas fa-search"></i>
-                                        <span>Carbohydrate</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div id="calories">
-                                        <i class="fas fa-search"></i>
-                                        <span>Fats</span>
-                                    </div>
-                                    <div id="calories">
-                                        <i class="fas fa-search"></i>
-                                        <span>Protein</span>
-                                    </div>
-                                </div>
+                                <canvas id="reportChart"></canvas>
                             </div>
                         </div>
                     </div>
@@ -296,39 +283,36 @@
                         </div>
                         <div class="each-more-container">
                             <div class="aside-recipe">
-                                <div class="head">
-                                    <div class="recipe-img">
-                                        <img src="/Images/Dash Chicken_Parmesan.png" alt="Chicken Parmesan">
-                                    </div>
-                                    <div class="recipe-desc">
-                                        <h3>Autumn Soup</h3>
-                                        <p class="calories">With a very delicious almond taste</p>
-                                    </div>
+                                <div class="recipe-img">
+                                    <img src="/Images/Blog 1.jpg" alt="Chicken Parmesan">
                                 </div>
-                                <div class="play-tutorial">                                            
-                                    <i class="fa-solid fa-play"></i>
-                                    <span id="play">Watch Tutorial</span>
-                                </div>
+                                <div class="recipe-desc">
+                                    <h3>Autumn Soup</h3>
+                                    <p class="recipe-p">With a delicious almond mixture</p>
+                                    <div class="tutorial">                                            
+                                        <i class="fa-solid fa-play"></i>
+                                        <span id="play">Video Tutorial</span>
+                                    </div>
+                                </div>    
                             </div>
                             <div class="aside-recipe">
-                                <div class="head">
-                                    <div class="recipe-img">
-                                        <img src="/Images/Dash Chicken_Parmesan.png" alt="Chicken Parmesan">
-                                    </div>
-                                    <div class="recipe-desc">
-                                        <h3>Autumn Soup</h3>
-                                        <p class="calories">With a very delicious almond taste</p>
-                                    </div>
+                                <div class="recipe-img">
+                                    <img src="/Images/Blog 1.jpg" alt="Chicken Parmesan">
                                 </div>
-                                <div class="play-tutorial">                                            
-                                    <i class="fa-solid fa-play"></i>
-                                    <span id="play">Watch Tutorial</span>
-                                </div>
+                                <div class="recipe-desc">
+                                    <h3>Grilled Cheese Sandwich</h3>
+                                    <p class="recipe-p">With a typical strawberry flavor</p>
+                                    <div class="tutorial">                                            
+                                        <i class="fa-solid fa-play"></i>
+                                        <span id="play">Video Tutorial</span>
+                                    </div>
+                                </div>    
                             </div>
                         </div>
                     </div>
                 </div>                    
             </div>
         </div>
+        <script src="main.js"></script>
     </body>
 </html>
