@@ -25,94 +25,97 @@
 
     <body>
         <div class="dash-width">
-            <div class="dashboard">
-                <nav class="sidebar" role="navigation" title="navigations">
-                    <header>
-                        <div class="logo">
-                            <p>
-                                eat-<span id="italian">Italian</span><span id="com">.com</span>
-                            </p>
-                        </div>
-    
-                        <i class="fa-solid fa-chevron-right toggle"></i>
-                    </header>
-    
-                    <div class="menu-bar">
-                        <div class="menu">
-                            <ul class="menu-items">
-                                <ul class="nav-links">
-                                    <li title="Overview">
-                                        <a href="#" id="overview" target="_self">
-                                            <i class="fa fa-th-large icons"></i>
-                                            <span class="linkName">Overview</span>
-                                        </a>
-                                    </li>
-                                    <li title="Recipes">
-                                        <a href="#">
-                                            <!-- <i class="fa-solid fa-bowl-food icons"></i> -->
-                                            <i class='bx bx-food-menu icons'></i>
-                                            <span class="linkName">Recipes</span>
-                                        </a>
-                                    </li>
-                                    <li title="Favorites">
-                                        <a href="#" target="_self">
-                                            <!-- <i class="fa-solid fa-heart icons"></i> -->
-                                            <i class='bx bx-heart icons'></i>
-                                            <span class="linkName">Favorites</span>
-                                        </a>
-                                    </li>
-                                    <li title="Inbox">
-                                        <a href="#" target="_self">
-                                            <!-- <i class="fa-solid fa-envelope icons"></i> -->
-                                            <i class='bx bx-envelope icons'></i>
-                                            <span class="linkName">Inbox</span>
-                                        </a>
-                                    </li>
-                                    <li title="Community">
-                                        <a href="#" target="_self">
-                                            <i class='bx bx-envelope icons'></i>
-                                            <span class="linkName">Community</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <ul class="logout" title="Logout">
-                                    <li>
-                                        <a href="#" target="_self">
-                                            <i class='bx bx-log-out icons'></i>
-                                            <span class="linkName">Log Out</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </ul>
-                        </div>
+            <nav class="sidebar" role="navigation" title="navigations">
+                <header>
+                    <div class="logo">
+                        <span class="ei">
+                            EI
+                        </span>
+                        <p>
+                            eat-<span id="italian">Italian</span><span id="com">.com</span>
+                        </p>
                     </div>
+                </header>
     
-                    <div class="upload">
-                        <div class="image">
-                            <img src="/Images/Nav Upload.png" alt="">
-                        </div>
-                        <div class="uploadMod">
-                            <p>Share your own Recipe with the community</p>
-                            <button type="submit">Upload Now</button>
-                        </div>
-                    </div>
-                </nav>
-                <section>
-                    <!-- 
-                        <i class="fa-solid fa-toggle-off"></i>
-                        <i class="fa-solid fa-toggle-on"></i>
-                     -->
-                    <div class="dash-body">
+                <div class="menu-bar">
+                    <ul class="nav-links">
+                        <li title="Overview">
+                            <a href="#" id="overview" target="_self">
+                                <i class="fas fa-th-large icons"></i>
+                                <span class="linkName">Overview</span>
+                            </a>
+                        </li>
+                        <li title="Recipes">
+                            <a href="#">
+                                <!-- <i class="fa-solid fa-bowl-food icons"></i> -->
+                                <i class="fa-solid fa-book icons"></i>
+                                <span class="linkName">Recipes</span>
+                            </a>
+                        </li>
+                        <li title="Favorites">
+                            <a href="#" target="_self">
+                                <!-- <i class="fa-solid fa-heart icons"></i> -->
+                                <i class="fa-solid fa-heart icons"></i>
+                                <span class="linkName">Favorites</span>
+                            </a>
+                        </li>
+                        <li title="Community">
+                            <a href="#" target="_self">
+                                <i class="fa-solid fa-users icons"></i>
+                                <span class="linkName">Community</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li title="Log Out">
+                            <a href="#" target="_self">
+                                <i class="fas fa-sign-out icons"></i>
+                                <span class="linkName">Log Out</span>
+                            </a>
+                        </li>
+                        <li title="Dark Mode">
+                            <a href="#" target="_self" class="dark-mode">
+                                <div class="moon-sun">
+                                    <i class="fa-solid fa-moon icons moon"></i>
+                                    <i class="fa-solid fa-sun icons sun"></i>
+                                </div>
+                                <span class="darkmode-text linkName">Dark Mode</span>
+    
+                                <div class="toggle-switch">
+                                    <span class="switch"></span>
+                                </div>
+                            </a>
+                            <!-- 
+                                <i class="fa-solid fa-toggle-off"></i>
+                                <i class="fa-solid fa-toggle-on"></i>
+                            -->
+                        </li>
+                    </ul>
+                    
+                </div>
+    
+                <div class="upload">
+                    <p>Share your own Recipe with the community</p>
+                    <button type="submit">Upload Now</button>
+                </div>
+            </nav>
+            <section>
+                <div class="container">
+                    <div class="dashboard">
                         <!-- The Search and Filter part at the top -->
-                        <div class="search">
-                            <form action="action_page.php" method="post" class="search-box" id="sidebar-search">
-                                <i class="fas fa-search search-icon"></i>
-                                <input type="search" name="search" id="dash-search" placeholder="Search by food name">
-                            </form>
-                            <!-- <i class="fa-solid fa-filter"></i> -->
-                            <div class="filter">
-                                <i class='bx bx-menu-alt-right'></i>
-                                Filter
+                        <div class="top">
+                            <!-- Hamburger Menu will be here -->
+                            <i class="fa-solid fa-bars hamburger"></i>
+                            <div class="search">
+                                <form action="action_page.php" method="post" class="search-box" id="sidebar-search">
+                                    <i class="fas fa-search search-icon"></i>
+                                    <input type="search" name="search" id="dash-search" placeholder="Search by food name">
+                                </form>
+                                <!-- <i class="fa-solid fa-filter"></i> -->
+                                <div class="filter">
+                                    <i class='bx bx-menu-alt-right'></i>
+                                    Filter
+                                </div>
                             </div>
                         </div>
     
@@ -120,7 +123,7 @@
                         <div class="add-recipe">
                             <div class="words">
                                 <h1>Add your own recipe</h1>
-                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod commodi alias sequi porro vitae, nulla officia ex aspernatur assumenda? Dolorem aliquid, illo earum quas aut architecto corporis hic vero veniam.</p>
+                                <p>Share the love for Italian Cuisine by adding your signature recipe to our platform. Join us in preserving and sharing the flavors of Italy with food lovers worldwide!</p>
                             </div>
                             <div class="image">
                                 <img src="/Images/Tasting_cake3_nobg.png" alt="Woman eating Pizza">
@@ -176,13 +179,13 @@
                                                 <p>+3 More</p>
                                             </div>
                                         </div>
-    
+        
                                         <!-- The play tutorial part -->
                                         <div class="recipe-footer">
                                             <div class="heart-icon" id="heart-icon">
-                                                <i onclick="myFunction(this)" class="fa-regular fa-heart"></i>
+                                                <i onclick="favorite(this)" class="fa-regular fa-heart"></i>
                                             </div>
-    
+        
                                             <div class="play-tutorial">                                            
                                                 <i class="fa-solid fa-play"></i>
                                                 <span id="play">Watch Tutorial</span>
@@ -230,13 +233,13 @@
                                                 <p>+3 More</p>
                                             </div>
                                         </div>
-    
+        
                                         <!-- The play tutorial part -->
                                         <div class="recipe-footer">
                                             <div class="heart-icon" id="heart-icon">
-                                                <i onclick="myFunction(this)" class="fa-regular fa-heart"></i>
+                                                <i onclick="favorite(this)" class="fa-regular fa-heart"></i>
                                             </div>
-    
+        
                                             <div class="play-tutorial">                                            
                                                 <i class="fa-solid fa-play"></i>
                                                 <span id="play">Watch Tutorial</span>
@@ -247,71 +250,69 @@
                             </div>
                         </div>
                     </div>
-                </section>
-                <div class="aside">
-                    <div class="aside-right">
-                        <span class="bell">
-                            <i class="fa fa-bell" aria-hidden="true">
-                                <span id="red-dot">
-                                    <i class="fa-solid fa-circle"></i>
-                                </span>
-                            </i>
-                        </span>
-                        <span class="user">
-                            <i class='bx bx-user'></i>
-                        </span>
-                    </div>
-                    <div class="report" title="Report">
-                        <div class="report-heading">
-                            <h2>Report</h2>
-                            <span id="onthismonth"> on this month</span>
+                    <div class="aside">
+                        <div class="aside-right">
+                            <span class="bell">
+                                <i class="fa fa-bell">
+                                    <span id="red-dot">
+                                        <i class="fa-solid fa-circle"></i>
+                                    </span>
+                                </i>
+                            </span>
+                            <span class="user">
+                                <i class="fa fa-user"></i>
+                            </span>
                         </div>
-                        <p id="currentDate"></p>
-                        <div class="graph-container">
-                            <div class="graph">
+                        <div class="report" title="Report">
+                            <div class="report-heading">
+                                <h2>Report</h2>
+                                <span id="thismonth"> on this month</span>
+                            </div>
+                            <p id="currentDate"></p>
+                            <div class="graph-container">
                                 <canvas id="reportChart"></canvas>
                             </div>
                         </div>
-                    </div>
-                    <div class="more-recipe">
-                        <div class="top">
-                            <h2>More Recipe</h2>
-                            <a href="#" class="view-more">
-                                View More
-                                <i class="fa chevron-right"></i>
-                            </a>
-                        </div>
-                        <div class="each-more-container">
-                            <div class="aside-recipe">
-                                <div class="recipe-img">
-                                    <img src="/Images/Blog 1.jpg" alt="Chicken Parmesan">
-                                </div>
-                                <div class="recipe-desc">
-                                    <h3>Autumn Soup</h3>
-                                    <p class="recipe-p">With a delicious almond mixture</p>
-                                    <div class="tutorial">                                            
-                                        <i class="fa-solid fa-play"></i>
-                                        <span id="play">Video Tutorial</span>
-                                    </div>
-                                </div>    
+                        <div class="more-recipe">
+                            <div class="top">
+                                <h2>More Recipe</h2>
+                                <a href="#" class="view-more">
+                                    View More
+                                    <i class="fa chevron-right"></i>
+                                </a>
                             </div>
-                            <div class="aside-recipe">
-                                <div class="recipe-img">
-                                    <img src="/Images/Blog 1.jpg" alt="Chicken Parmesan">
-                                </div>
-                                <div class="recipe-desc">
-                                    <h3>Grilled Cheese Sandwich</h3>
-                                    <p class="recipe-p">With a typical strawberry flavor</p>
-                                    <div class="tutorial">                                            
-                                        <i class="fa-solid fa-play"></i>
-                                        <span id="play">Video Tutorial</span>
+                            <div class="each-more-container">
+                                <div class="aside-recipe">
+                                    <div class="recipe-img">
+                                        <img src="/Images/Blog 1.jpg" alt="Chicken Parmesan">
                                     </div>
-                                </div>    
+                                    <div class="recipe-desc">
+                                        <h3>Autumn Soup</h3>
+                                        <p class="recipe-p">With almond taste.</p>
+                                        <div class="tutorial">                                            
+                                            <i class="fa-solid fa-play"></i>
+                                            <span id="play">Video Tutorial</span>
+                                        </div>
+                                    </div>    
+                                </div>
+                                <div class="aside-recipe" id="each-more1">
+                                    <div class="recipe-img">
+                                        <img src="/Images/Blog 1.jpg" alt="Chicken Parmesan">
+                                    </div>
+                                    <div class="recipe-desc">
+                                        <h3>Cheese Sandwich</h3>
+                                        <p class="recipe-p">With orange flavor</p>
+                                        <div class="tutorial">                                            
+                                            <i class="fa-solid fa-play"></i>
+                                            <span id="play">Video Tutorial</span>
+                                        </div>
+                                    </div>    
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>                    
-            </div>
+                </div>
+            </section>            
         </div>
         <script src="main.js"></script>
     </body>
