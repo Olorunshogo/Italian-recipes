@@ -673,7 +673,6 @@ section .container {
     left: 0;
     width: 400px;
     padding: 20px;
-    background-color: var(--dash-sidebar-bg);
     box-shadow: -2px -4px 2px #ddd;
 }
 
@@ -789,9 +788,9 @@ section .container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: var(--dash-secondary-background);
+    background-color: var(--dash-ingredient-red);
     position: absolute;
-    top: 25%;
+    top: 20%;
     border-radius: 20px;
     padding: 0 20px;
     text-align: left;
@@ -1230,6 +1229,7 @@ section .container {
     .sidebar.close {
         width: 60px;
         transition: var(--trans-05);
+        height: 1000px;
     }
 
     .sidebar.close header .logo span {
@@ -1472,7 +1472,6 @@ section .container {
     .dashboard {
         max-width: 520px;
         min-width: 520px;
-        background-color: blue;
     }
 
     .dashboard .search-box input[type=search] {
@@ -1547,3 +1546,4 @@ section .container {
         margin-right: 15px;
     } 
 }
+
