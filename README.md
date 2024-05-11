@@ -1,14 +1,15 @@
 # An Italian Recipe making website
 
 ## Description
-This is a website that allows a user to browse through italian recipes. The user would be able to create, add, edit and delete a recipe from their account as they deem fit and also, the user can add recipes from the collection of recipes available on the website. Additionally, there is a community of italian food lovers that the user can join to discuss their love for italian foods.
+This website enables users to explore a variety of Italian recipes. Users have the flexibility to create, modify, and remove recipes from their account, and they can also contribute recipes from the site's collection. Moreover, users can engage with a community of fellow Italian food enthusiasts to share and discuss their passion for Italian cuisine.
 
 This website is made using the following tech stack:
     1. **HTML**.
     2. **CSS**.
     3. **JavaScript**.
 
-Some of the challenges I faced was designing this website. Along the way, I had to restructure a lot of my code to accomodate some changes that had to be made. Especially, when I was trying to make it responsive. Based on reviews so far, I believe it's pretty much a good design but I think I would prefer to work with a designer on any future project while I get better at web designs.
+
+I encountered several hurdles while developing this website, particularly during the design phase. I found myself restructuring a significant portion of my code to adapt to necessary adjustments, particularly when optimizing for responsiveness. While initial reviews have made me believe it is a good design, I think I would prefer to work with a designer on any future project while I get better at web designs.
 
 I would like to make all form and input fields to submit and be functional. And also, make the subscribe button prompt a modal of a form to subscribe to newsletters. 
 
