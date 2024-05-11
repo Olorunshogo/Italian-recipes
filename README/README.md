@@ -14,5 +14,5 @@ I encountered several hurdles while developing this website, particularly during
 I would like to make all form and input fields to submit and be functional. And also, make the subscribe button prompt a modal of a form to subscribe to newsletters. 
 
 ## Features
-This website has a gallery ![The gallery in the homepage of the website](Images/Ingredients on a board.jpg) that shows the best ***Italian*** recipes with little description, a detailed about us section of the company's description that includes it's product, recipes and support they have,
+This website has a gallery ! [The gallery in the homepage of the website](Images/Ingredients on a board.jpg) that shows the best ***Italian*** recipes with little description, a detailed about us section of the company's description that includes it's product, recipes and support they have,
 For this webpage, the user will be able to sign up and login, will have access to a dashboard. On the dashboard will be a list of all the recipes that have been created with an action to delete and edit recipes.
