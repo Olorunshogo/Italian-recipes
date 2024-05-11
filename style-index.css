@@ -467,6 +467,7 @@ nav {
     margin: 0 2% 0 0;
     height: auto;
     transition: all 0.5s ease-in-out;
+    box-shadow: 2px 2px 4px #222, -2px -2px 4px #111;
 }
 
 .best-recipes .gallery .row .highlight:hover {
@@ -609,6 +610,7 @@ nav {
     display: flex;
     flex-direction: column;
     width: 32%;
+    box-shadow: 2px 2px 4px #222, -2px -2px 4px #111;
     transition: transform 0.5s ease-out;
 }
 
@@ -638,7 +640,6 @@ nav {
     padding: 1rem;
     text-align: center;
     width: 100%;
-    border: 1px solid #888;
     min-height: 300px;
     max-height: 400px;
     overflow: auto;
