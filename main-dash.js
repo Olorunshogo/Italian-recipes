@@ -6,12 +6,19 @@ const body = document.querySelector("body"),
     searchBtn = body.querySelector(".search"),
     modeSwitch = body.querySelector(".toggle-switch"),
     modeText = body.querySelector("darkmode-text"),
-    hamburger = body.querySelector(".hamburger");
+    sidebarHamburger = body.querySelector(".sidebar-hamburger"),
+    asideHamburger = body.querySelector(".aside-hamburger"),
+    aside = body.querySelector(".aside");
 
 // Add the "close" class to sidebar
-hamburger.addEventListener("click", function() {
+sidebarHamburger.addEventListener("click", function() {
   sidebar.classList.toggle("close");
 });
+
+// Add the "reduce" class to aside
+asideHamburger.addEventListener("click", function() {
+    aside.classList.toggle("hide");
+  });
 
 // Onclick toggle to the and light mode
 modeSwitch.addEventListener("click", () => {
@@ -92,5 +99,4 @@ currentDate();
             }
         }
     });
-    document.getElementsByClassName("graph-container").style.fontSize = "140px";
 }
