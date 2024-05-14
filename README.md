@@ -6,7 +6,7 @@ This website enables users to explore a variety of ***Italian*** recipes. Users 
 This website is made using the following tech stack:
   1. **HTML**.
   2. **CSS**.
-  3. **JavaScript**.
+  3. **JavaScript**..
 
 
 I encountered several hurdles while developing this website, particularly during the design phase. I found myself restructuring a significant portion of my code to adapt to necessary adjustments, particularly when optimizing for responsiveness. While initial reviews have made me believe it is a good design, I think I would prefer to work with a designer on any future project while I get better at web designs.
