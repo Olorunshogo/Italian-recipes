@@ -10,7 +10,7 @@ This website is made using the following tech stack:
 
 I encountered several hurdles while developing this website, particularly during the design phase. I found myself restructuring a significant portion of my code to adapt to necessary adjustments, particularly when optimizing for responsiveness. While initial reviews have made me believe it is a good design, I think I would prefer to work with a designer on any future project while I get better at web designs.
 
-I would like to make all form and input fields to submit and be functional. And also, make the subscribe button prompt a modal of a form to subscribe to newsletters. 
+<!-- I would like to make all form and input fields to submit and be functional. And also, make the subscribe button prompt a modal of a form to subscribe to newsletters.  -->
 
 ## Table of Content
 1. Description
