@@ -6,19 +6,12 @@ const body = document.querySelector("body"),
     searchBtn = body.querySelector(".search"),
     modeSwitch = body.querySelector(".toggle-switch"),
     modeText = body.querySelector("darkmode-text"),
-    sidebarHamburger = body.querySelector(".sidebar-hamburger"),
-    asideHamburger = body.querySelector(".aside-hamburger"),
-    aside = body.querySelector(".aside");
+    sidebarHamburger = body.querySelector(".sidebar-hamburger");
 
 // Add the "close" class to sidebar
 sidebarHamburger.addEventListener("click", function() {
   sidebar.classList.toggle("close");
 });
-
-// Add the "reduce" class to aside
-asideHamburger.addEventListener("click", function() {
-    aside.classList.toggle("hide");
-  });
 
 // Onclick toggle to the and light mode
 modeSwitch.addEventListener("click", () => {
@@ -49,11 +42,11 @@ currentDate();
     let dateObj = new Date();
     const currentMonth = dateObj.getUTCMonth();
     let month = "";
-    let xValues = ["Calories", "Carbohydrate", "Fats", "Protein"];
-    let yValues = [48, 42, 22, 18];
+    let xValues = ["Calories", "Protein", "Fats", "Carbohydrate"];
+    let yValues = [48, 18, 22, 42];
     let barColours = [
-        "#e8c3b9", "#2b5797",
-        "#00aba9", "#b91d47"
+        "#e8c3b9", "#b91d47",
+        "#00aba9", "#2b5797"
     ];    
 
     if (currentMonth == 0) {
