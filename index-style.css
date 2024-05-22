@@ -581,19 +581,19 @@ nav {
     height: auto;
 }
 
-.about-us .description {
+.about-us .row1 .desc {
     width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.about-us .description h2 {
+.about-us .row1 .desc h2 {
     font-weight: 600;
     font-size: 2.5rem;
 }
 
-.about-us .description p {
+.about-us .row1 .desc p {
     font-size: 1.1rem;
     margin: 8px 0;
 }
@@ -1447,12 +1447,12 @@ footer {
         display: none;
     }
     
-    .about-us .description h2 {
+    .about-us .row1 .desc h2 {
         font-weight: 600;
         font-size: 2.2rem;
     }
     
-    .about-us .description p {
+    .about-us .row1 .desc p {
         font-weight: 400;
         font-size: 12px;
         margin: 8px 0;
@@ -1562,7 +1562,7 @@ footer {
         font-size: 13px;
     }
 
-    .about-us .description #disappear1 {
+    .about-us .row1 .desc #disappear1 {
         display: none;
     }
 
@@ -1894,7 +1894,7 @@ footer {
     }
 
     .about-us .row1 .description {
-        width: 45%;
+        width: 50%;
         margin-right: auto;
     }
 
@@ -1907,15 +1907,15 @@ footer {
         display: none;
     }
 
-    .about-us .description #disappear {
+    .about-us .row1 .desc #disappear {
         display: none;
     }
 
-    .about-us .description h2 {
+    .about-us .row1 .desc h2 {
         font-size: 24px;
     }
 
-    .about-us .description p {
+    .about-us .row1 .desc p {
         font-size: 12px;
     }
 
@@ -2153,7 +2153,7 @@ footer {
         font-size: 12px;
     }
 
-    .best-recipes h2, .about-us .description h2, .top-chefs h2, .share .share-recipe h2 {
+    .best-recipes h2, .about-us .row1 .desc h2, .top-chefs h2, .share .share-recipe h2 {
         font-size: 24px;
     }
 
@@ -2185,12 +2185,12 @@ footer {
         margin-right: auto;
     }
 
-    .about-us .description {
+    .about-us .row1 .desc {
         display: block;
         width: 100%;
     }
 
-    .about-us .description p {
+    .about-us .row1 .desc p {
         width: 100%;
     }
 
@@ -2392,7 +2392,7 @@ footer {
         text-align: center;
     }
 
-    .best-recipes h2, .about-us .description h2, .top-chefs h2, .share .share-recipe h2 {
+    .best-recipes h2, .about-us .row1 .desc h2, .top-chefs h2, .share .share-recipe h2 {
         font-size: 20px;
     }
 
