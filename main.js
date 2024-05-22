@@ -7,8 +7,8 @@ function author() {
     alert("Author is:  BAMTEFA, Olorunshogo Moses ☺☺☺☺.");
 }
 
-            // SIDEMENU
-    // Open Button
+    // SIDEMENU
+        // Open Button
 {
     const openButton = document.getElementById("open-button");
     openButton.addEventListener("click", function() {
