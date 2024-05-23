@@ -2,7 +2,7 @@
 
     
     
-    // The button in the footer
+// The button in the footer
 function author() {
     alert("Author is:  BAMTEFA, Olorunshogo Moses ☺☺☺☺.");
 }
